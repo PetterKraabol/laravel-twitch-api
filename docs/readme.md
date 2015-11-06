@@ -62,7 +62,7 @@ TwitchApi::deleteBlock($user, $target, $token);
 TwitchApi::channel($channel);
 
 // Authenticated channel
-TwitchApi::authChannel($token);
+TwitchApi::authenticatedChannel($token);
 
 // Update channel
 $options = array(
