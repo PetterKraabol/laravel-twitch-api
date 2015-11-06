@@ -16,7 +16,7 @@ class TwitchApiServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../../config/twitch-api.php' => config_path('twitch-api.php');
+            __DIR__.'/../../config/twitch-api.php' => config_path('twitch-api.php')
         ]);
     }
 }
