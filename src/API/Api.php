@@ -75,11 +75,6 @@ class Api
         return json_decode($response->getBody(), true);
     }
 
-    public function sendSpecialRequest($type, $path, )
-    {
-
-    }
-
     /**
      * Default Request Headers
      *

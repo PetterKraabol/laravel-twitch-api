@@ -13,7 +13,7 @@ class Channels extends API
     // Get authenticated channel
     public function authenticatedChannel($token = null)
     {
-        return $this->sendRequest('GET', 'channel', $this->getToken($token);
+        return $this->sendRequest('GET', 'channel', $this->getToken($token));
     }
 
     // Update channel
@@ -28,7 +28,7 @@ class Channels extends API
     // Reset stream key
     public function deleteStreamKey($channel, $token = null)
     {
-        return $this->sendRequest('DELETE', 'channels/'.$channel.'/stream_key', $this->getToken($token);
+        return $this->sendRequest('DELETE', 'channels/'.$channel.'/stream_key', $this->getToken($token));
     }
 
     // Run commercial
