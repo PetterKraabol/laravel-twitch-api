@@ -2,8 +2,6 @@
 
 namespace Zarlach\TwitchApi\API;
 
-use GuzzleHttp\Client;
-
 class Channels extends API
 {
     // Get channel info
@@ -13,7 +11,7 @@ class Channels extends API
     }
 
     // Get authenticated channel
-    public function authChannel($token = null)
+    public function authenticatedChannel($token = null)
     {
         return $this->sendRequest('GET', 'channel', $this->getToken($token);
     }
@@ -22,6 +20,7 @@ class Channels extends API
     public function putChannel($channel, $options, $token = null)
     {
         $availableOptions = ['status', 'game', 'delay'];
+        $options = array('stream' => $options) ;
 
         return $this->sendRequest('PUT', 'channels/'.$channel, $this->getToken($token), $options, $availableOptions);
     }
@@ -32,6 +31,7 @@ class Channels extends API
         return $this->sendRequest('DELETE', 'channels/'.$channel.'/stream_key', $this->getToken($token);
     }
 
+    // Run commercial
     public function postCommercial($channel, $length = 30, $token = null)
     {
         $availableOptions = ['length'];

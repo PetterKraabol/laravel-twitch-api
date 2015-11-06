@@ -3,7 +3,7 @@
 namespace Zarlach\TwitchApi\API;
 
 use GuzzleHttp\Client;
-use Zarlach\TwitchApi\Exceptions\RequestRequiresAuthenticationException.php;
+use Zarlach\TwitchApi\Exceptions\RequestRequiresAuthenticationException;
 
 class Api
 {
@@ -51,7 +51,7 @@ class Api
      */
     public function getToken($token = null)
     {
-        if(!$token)
+        if($token)
             return $token;
 
         if(!$this->token)
@@ -69,7 +69,7 @@ class Api
      *
      * @return \GuzzleHttp\Message\Request|\GuzzleHttp\Message\RequestInterface
      */
-    public function sendRequest($type, $path, $token = false, $options = [], $availableOptions = [])
+    public function sendRequest($type = 'GET', $path = '', $token = false, $options = [], $availableOptions = [])
     {
         $response = $this->client->request($type, $path, $this->generateHeaders($token, $options, $availableOptions));
         return json_decode($response->getBody(), true);
