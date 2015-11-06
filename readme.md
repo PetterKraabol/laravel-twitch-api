@@ -43,6 +43,12 @@ Publish config, then configure your ```config/twitch-api.php```
 php artisan vendor:publish --force
 ```
 
+## To-Do
+
+- Cover every element in Twitch API
+- Authentication
+- Submit repo to Packagist.org for Composer
+
 ## Documentation
 
 ### Example Usage
@@ -107,7 +113,7 @@ TwitchApi::deleteBlock($user, $target, $token);
 TwitchApi::channel($channel);
 
 // Authenticated channel
-TwitchApi::authChannel($channel, $token);
+TwitchApi::authChannel($token);
 
 // Update channel
 $options = array(

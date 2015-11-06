@@ -26,7 +26,7 @@ class Api
     {
         if($token) $this->setToken($token);
         $this->client = new Client([
-            'base_uri' => config('twitch-api.api_url'),
+            'base_uri' => 'https://api.twitch.tv/kraken/',
             'timeout'  => 2.0,
             'defaults' => [
                 'headers' => ['Accept' => 'application/vnd.twitchtv.v3+json']
