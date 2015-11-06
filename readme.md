@@ -8,7 +8,7 @@ This API is currently in development and is not finished. Documentation, testing
 
 ## Installation
 
-Add this repository in your ```composer.js```
+Add this repository in your ```composer.json```
 ```json
 "repositories": [
   {
