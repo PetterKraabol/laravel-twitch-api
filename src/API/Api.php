@@ -76,6 +76,9 @@ class Api
     }
 
     public function sendSpecialRequest($type, $path, )
+    {
+
+    }
 
     /**
      * Default Request Headers

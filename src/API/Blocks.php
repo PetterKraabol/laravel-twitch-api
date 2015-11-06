@@ -5,20 +5,20 @@ namespace Zarlach\TwitchApi\API;
 class Blocks extends Api
 {
     // Get blocked users
-    public function blocks($user)
+    public function blocks($user, $token = null)
     {
-        return $this->sendRequest('GET', 'users/'.$user.'/blocks', $this->getToken());
+        return $this->sendRequest('GET', 'users/'.$user.'/blocks', $this->getToken($token);
     }
 
     // Block a user
-    public function putBlock($user, $tagret)
+    public function putBlock($user, $tagret, $token = null)
     {
-        return $this->sendRequest('PUT', 'users/'.$user.'/blocks/'.$target, $this->getToken());
+        return $this->sendRequest('PUT', 'users/'.$user.'/blocks/'.$target, $this->getToken($token);
     }
 
     // Unblock a user
-    public function deleteBlock($user, $target)
+    public function deleteBlock($user, $target, $token = null)
     {
-        return $this->sendRequest('DELETE', 'users/'.$user.'/blocks/'.$target, $this->getToken());
+        return $this->sendRequest('DELETE', 'users/'.$user.'/blocks/'.$target, $this->getToken($token);
     }
 }
