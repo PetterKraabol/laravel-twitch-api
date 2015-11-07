@@ -4,25 +4,8 @@ An easy-to-use RESTful API for Laravel 5.1
 
 ## Installation
 
-Add this repository and require the package in your ```composer.json```.
-```json
-"repositories": [
-    {
-        "url": "git@github.com:petterkraabol/laravel-twitch-api.git",
-        "type": "git",
-        "reference": "master"
-    }
-],
-```
-```json
-"require": {
-    "zarlach/laravel-twitch-api": "~1.0"
-},
-```
-Update composer
-
 ```bash
-$ composer update
+$ composer require zarlach/laravel-twitch-api
 ```
 
 In ```config/app.php```, add this provider in ```providers```
@@ -45,7 +28,6 @@ php artisan vendor:publish --force
 
 ## To-Do
 - Authentication
-- Submit repo to Packagist.org for Composer
 
 ## Documentation
 
