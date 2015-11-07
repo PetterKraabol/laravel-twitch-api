@@ -19,6 +19,11 @@ Add this repository and require the package in your ```composer.json```.
     "petterkraabol/laravel-twitch-api": "~1.0"
 },
 ```
+Update composer
+
+```bash
+$ composer update
+```
 
 In ```config/app.php```, add this provider in ```providers```
 
