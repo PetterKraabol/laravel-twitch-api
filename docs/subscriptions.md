@@ -15,13 +15,13 @@ $options = [
     'offset' => 0,
     'direction' => 'DESC',
 ];
-channelsSubscriptions($channel, $options, $token);
+subscribers($channel, $options, $token);
 
 // Get subscription object of a single channel subscribers
-channelSubscriptionUser($channel, $user, $token);
+subscriber($channel, $user, $token);
 
 // Get channel object of a single channel subscriber
-userSubscriptionChannel($user, $channel, $token);
+subscribedToChannel($user, $channel, $token);
 
 ```
 
@@ -49,7 +49,7 @@ class SubscriptionController extends Controller
 
         TwitchApi::setToken('xxxxxxxxxxxxxx');
 
-        return TwitchApi::channelsSubscriptions($channel, $options);
+        return TwitchApi::subscribers($channel, $options);
     }
 }
 ```

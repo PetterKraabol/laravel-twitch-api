@@ -1,6 +1,6 @@
 # Api
 
-The Api class contains the core functions of the package. Every other API function extends from this.
+The Api class contains the core functions of the package. All other API functions extend from this.
 
 ## Functions
 

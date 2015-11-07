@@ -13,13 +13,13 @@ User objects, followings and followed videos.
 user($user);
 
 // Authenticated user object
-authenticatedUser($token);
+authUser($token);
 
-// An authenticated user is following these channels
-streamsFollowed($token);
+// Followed streams who are live
+liveChannels($token);
 
-// An authenticated user is following these videos
-videosFollowed($token);
+// Videos from channels you follow
+followedChannelVideos($token);
 
 ```
 
@@ -44,11 +44,11 @@ class UsersController extends Controller
         return TwitchApi::user('zarlach');
     }
 
-    public function authenticatedUser()
+    public function authUser()
     {
         TwitchApi::setToken('xxxxxxxxxxxxxx');
 
-        return TwitchApi::authenticatedUser();
+        return TwitchApi::authUser();
     }
 }
 ```

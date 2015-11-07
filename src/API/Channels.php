@@ -34,6 +34,7 @@ class Channels extends API
     // Run commercial
     public function postCommercial($channel, $length = 30, $token = null)
     {
+        $options          = ['length' => $length];
         $availableOptions = ['length'];
 
         return $this->sendRequest('POST', 'channels/'.$channel.'/commercial', $this->getToken($token), $options, $availableOptions);

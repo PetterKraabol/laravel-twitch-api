@@ -23,11 +23,34 @@ Add this facade in ```aliases```
 Publish config, then configure your ```config/twitch-api.php```
 
 ```php
-php artisan vendor:publish --force
+php artisan vendor:publish
 ```
 
-## To-Do
-- Authentication
+## Status (what's broken)
+
+Here's a list of known bugs or non-working functions.
+
+*Functions with ```$options``` are currently not working.*
+
+| Function | Description |
+| -------- | ----------- |
+| Update channel | ```$options``` |
+| Reset stream key | Currently not working, needs testing. |
+| Run commercial | ```$options``` |
+| Chat functions | ```$options``` |
+| Followers | ```$options``` |
+| Followings | ```$options``` |
+| Follow | ```$options``` |
+| Unfollow | ```$options``` |
+| Top games with options | ```$options``` |
+| Search channels | ```$options``` |
+| Search streams | ```$options``` |
+| Search games | ```$options``` |
+| Streams with options | ```$options``` |
+| Featured Streams with options | ```$options``` |
+| Stream summaries | ```$options``` |
+| Subscribers with options | ```$options``` |
+| Teams with options | ```$options``` |
 
 ## Documentation
 

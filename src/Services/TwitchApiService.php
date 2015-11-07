@@ -29,19 +29,19 @@ class TwitchApiService extends Api
     /**
      * Blocks
      */
-    public function blocks($user, $token = null)
+    public function ignoreList($user, $token = null)
     {
         $blocks = new Blocks($this->getToken($token));
         return $blocks->blocks($user);
     }
 
-    public function putBlock($user, $target, $token = null)
+    public function ignore($user, $target, $token = null)
     {
         $blocks = new Blocks($this->getToken($token));
         return $blocks->putBlock($user, $target);
     }
 
-    public function deleteBlock($user, $target, $token = null)
+    public function unignore($user, $target, $token = null)
     {
         $blocks = new Blocks($this->getToken($token));
         return $blocks->deleteBlock($user, $target);
@@ -56,25 +56,25 @@ class TwitchApiService extends Api
         return $channels->channel($channel);
     }
 
-    public function authenticatedChannel($token = null)
+    public function authChannel($token = null)
     {
         $channels = new Channels($this->getToken($token));
         return $channels->authenticatedChannel();
     }
 
-    public function putChannel($channel, $options, $token = null)
+    public function updateChannel($channel, $options, $token = null)
     {
         $channels = new Channels($this->getToken($token));
         return $channels->putChannel($channel, $options);
     }
 
-    public function deleteStreamKey($channel, $token = null)
+    public function resetStreamKey($channel, $token = null)
     {
         $channels = new Channels($this->getToken($token));
         return $channels->deleteStreamKey($channel);
     }
 
-    public function postCommercial($channel, $length = 30, $token = null)
+    public function runCommercial($channel, $length = 30, $token = null)
     {
         $channels = new Channels($this->getToken($token));
         return $channels->postCommercial($channel, $length);
@@ -83,7 +83,7 @@ class TwitchApiService extends Api
     /**
      * Chat
      */
-    public function chatChannel($channel)
+    public function chat($channel)
     {
         $chat = new Chat();
         return $chat->chatChannel($channel);
@@ -104,31 +104,31 @@ class TwitchApiService extends Api
     /**
      * Follow
      */
-    public function channelFollows($channel, $options = [])
+    public function followers($channel, $options = [])
     {
         $follow = new Follow();
         return $follow->channelFollows($channel, $options);
     }
 
-    public function userFollowsChannels($user, $options)
+    public function followings($user, $options)
     {
         $follow = new Follow();
         return $follow->userFollowsChannels($user, $options);
     }
 
-    public function userFollowsChannel($user, $channel)
+    public function userIsFollowing($user, $channel)
     {
         $follow = new Follow();
         return $follow->userFollowsChannel($user, $channel);
     }
 
-    public function authenticatedUserFollowsChannel($user, $channel, $options = [], $token = null)
+    public function follow($user, $channel, $options = [], $token = null)
     {
         $follow = new Follow($this->getToken($token));
         return $follow->authenticatedUserFollowsChannel($user, $channel, $options);
     }
 
-    public function authenticatedUserUnfollowsChannel($user, $channel, $token = null)
+    public function unfollow($user, $channel, $token = null)
     {
         $follow = new Follow($this->getToken($token));
         return $follow->authenticatedUserUnfollowsChannel($user, $channel);
@@ -161,6 +161,12 @@ class TwitchApiService extends Api
         return $root->root();
     }
 
+    public function authRoot($token = null)
+    {
+        $root = new Root($this->getToken($token));
+        return $root->authRoot();
+    }
+
     /**
      * Search
      */
@@ -185,7 +191,7 @@ class TwitchApiService extends Api
     /**
      * Streams
      */
-    public function streamsChannel($channel)
+    public function liveChannel($channel)
     {
         $streams = new Streams();
         return $streams->streamsChannel($channel);
@@ -197,13 +203,13 @@ class TwitchApiService extends Api
         return $streams->streams($options);
     }
 
-    public function streamsFeatured($options = [])
+    public function featuredStreams($options = [])
     {
         $streams = new Streams();
         return $streams->streamsFeatured($options);
     }
 
-    public function streamsSummary($options = [])
+    public function streamSummaries($options = [])
     {
         $streams = new Streams();
         return $streams->streamsSummary($options);
@@ -212,19 +218,19 @@ class TwitchApiService extends Api
     /**
      * Subscriptions
      */
-    public function channelsSubscriptions($channel, $options = [], $token = null)
+    public function subscribers($channel, $options = [], $token = null)
     {
         $subscriptions = new Subscriptions($this->getToken($token));
         return $subscriptions->channelsSubscriptions($channel, $options);
     }
 
-    public function channelSubscriptionsUser($channel, $user, $token = null)
+    public function subscriber($channel, $user, $token = null)
     {
         $subscriptions = new Subscriptions($this->getToken($token));
         return $subscriptions->channelSubscriptionUser($channel, $user);
     }
 
-    public function userSubscriptionChannel($user, $channel, $token = null)
+    public function subscribedToChannel($user, $channel, $token = null)
     {
         $subscriptions = new Subscriptions($this->getToken($token));
         return $subscriptions->userSubscriptionChannel($user, $channel);
@@ -254,7 +260,7 @@ class TwitchApiService extends Api
         return $users->user($user);
     }
 
-    public function authenticatedUser($token = null)
+    public function authUser($token = null)
     {
         $users = new Users($this->getToken($token));
         return $users->authenticatedUser();
@@ -281,13 +287,13 @@ class TwitchApiService extends Api
         return $videos->video($id);
     }
 
-    public function videosTop($options = [])
+    public function topVideos($options = [])
     {
         $videos = new Videos();
         return $videos->videosTop($options);
     }
 
-    public function channelsVideo($channel, $options = [])
+    public function channelVideos($channel, $options = [])
     {
         $videos = new Videos();
         return $videos->channelsVideo($channel, $options);

@@ -13,7 +13,7 @@ Channel objects, reset stream keys and play commercials
 channel($channel);
 
 // Authenticated channel
-authenticatedChannel($token);
+authChannel($token);
 
 // Update channel
 $options = [
@@ -21,13 +21,13 @@ $options = [
     'game'   => 'RuneScape',
     'delay'  => 0
 ];
-putChannel($channel, $options, $token);
+updateChannel($channel, $options, $token);
 
 // Delete (rest) stream key
-deleteStreamKey($channel, $token);
+resetStreamKey($channel, $token);
 
 // Post (run) commercial
-postCommercial($channel, $length = 30, $token);
+runCommercial($channel, $length = 30, $token);
 ```
 ## Example Usage
 
@@ -50,11 +50,11 @@ class ChannelController extends Controller
         return TwitchApi::channel('zarlach');
     }
 
-    public function playCommercial()
+    public function runCommercial()
     {
         TwitchApi::setToken('xxxxxxxxxxxxxx');
 
-        return TwitchApi::postCommercial('zarlach', 30);
+        return TwitchApi::runCommercial('zarlach', 30);
     }
 }
 ```

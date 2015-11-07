@@ -4,11 +4,16 @@ Twitch API root
 
 ## Functions
 
+```$token``` is an optional parameter, but required to be set somewhere.
+
 ```php
 <?php
 
-// API Root
+// API root
 root();
+
+// Authenticated API root
+authRoot($token);
 
 ```
 
@@ -28,9 +33,16 @@ use App\Http\Controllers\Controller;
 
 class RootController extends Controller
 {
-    public function apiRoot()
+    public function root()
     {
         return TwitchToken::root();
+    }
+
+    public function authRoot()
+    {
+        TwitchToken::setToken('xxxxxxxxxxxxxx');
+
+        return TwitchToken::authRoot();
     }
 }
 ```

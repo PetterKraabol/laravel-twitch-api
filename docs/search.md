@@ -17,6 +17,22 @@ $options = [
 ];
 searchChannels($options);
 
+// Search channels
+$options = [
+    'query'  => 'zarlach',
+    'limit'  => 5,
+    'offset' => 0,
+];
+searchStreams($options);
+
+// Search channels
+$options = [
+    'query'  => 'zarlach',
+    'limit'  => 5,
+    'offset' => 0,
+];
+searchGames($options);
+
 ```
 
 ## Example Usage

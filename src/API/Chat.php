@@ -7,7 +7,7 @@ class Chat extends Api
     // List of all Twitch emote objects in a channel
     public function chatChannel($channel)
     {
-        return $this->sendRequest('GET', 'chat/'.$channel)
+        return $this->sendRequest('GET', 'chat/'.$channel);
     }
 
     // List of chat badges in a channel

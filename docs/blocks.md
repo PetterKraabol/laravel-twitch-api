@@ -9,13 +9,13 @@ For seeing blocked (ignored) users and (un)block a user.
 <?php
 
 // List of blocked users
-blocks($user, $token);
+ignoreList($user, $token);
 
 // Block a user
-putBlock($user, $target, $token);
+ignore($user, $target, $token);
 
 // Unblock user
-deleteBlock($user, $target, $token);
+unignore($user, $target, $token);
 
 ```
 
@@ -39,19 +39,19 @@ class IgnoreController extends Controller
     {
         TwitchApi::setToken('xxxxxxxxxxxxxxxxx');
 
-        return TwitchToken::blocks('zarlach', $token);
+        return TwitchToken::ignoreList('zarlach', $token);
     }
 
     public function ignoreUser()
     {
         TwitchApi::setToken('xxxxxxxxxxxxxxxxx');
 
-        return TwitchApi::putBlock('zarlach', 'kappa', $token);
+        return TwitchApi::ignore('zarlach', 'kappa', $token);
     }
 
     public function unignoreUser()
     {
-        TwitchApi::setToken('xxxxxxxxxxxxxxxxx');
+        TwitchApi::unignore('xxxxxxxxxxxxxxxxx');
 
         return TwitchApi::deleteBlock('zarlach', 'kappa', $token);
     }

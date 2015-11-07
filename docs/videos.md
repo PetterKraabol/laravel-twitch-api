@@ -13,7 +13,7 @@ Video objects, top lists and channel videos.
 video($id);
 
 // List of videos in a time period, ordered by views
-videosTop($options);
+topVideos($options);
 
 // List of channel videos
 options = [
@@ -22,7 +22,7 @@ options = [
     'broadcasts' => '',
     'hls' => '',
 ];
-channelsVideo($channel, $options);
+channelVideos($channel, $options);
 
 ```
 
@@ -47,7 +47,7 @@ class VideosController extends Controller
         $options = [
             'limit' => 10,
         ];
-        return TwitchApi::videosTop($options);
+        return TwitchApi::topVideos($options);
     }
 }
 ```

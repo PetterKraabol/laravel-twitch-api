@@ -17,7 +17,7 @@ $options = [
     'offset'    => 0,
     'direction' => 'DESC',
 ];
-channelFollows($channel, $options);
+followers($channel, $options);
 
 // Get list of who the user is following
 $options = [
@@ -26,19 +26,19 @@ $options = [
     'direction' => 'DESC',
     'sortby'    => 'created_at',
 ];
-userFollowsChannels($user, $options);
+followings($user, $options);
 
 // Check if user follows a channel - 404 if not
-userFollowsChannel($user, $channel);
+userIsFollowing($user, $channel);
 
 // Follow a channel
 $options = [
     'notifications' => false,
 ];
-authenticatedUserFollowsChannel($user, $channel, $options, $token);
+follow($user, $channel, $options, $token);
 
 // Unfollow a channel
-authenticatedUserUnfollowsChannel($user, $channel, $token);
+unfollow($user, $channel, $token);
 
 ```
 
@@ -63,12 +63,12 @@ class FollowController extends Controller
         $options = [
             'limit' => 100,
         ];
-        return TwitchToken::channelFollows('zarlach', $options);
+        return TwitchToken::followers('zarlach', $options);
     }
 
     public function followChannel()
     {
-        return TwitchApi::authenticatedUserFollowsChannel('zarlach', 'kappa');
+        return TwitchApi::follow('zarlach', 'kappa');
     }
 }
 ```

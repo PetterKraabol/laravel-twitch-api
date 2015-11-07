@@ -34,9 +34,9 @@ use App\Http\Controllers\Controller;
 
 class ChatController extends Controller
 {
-    public function chatChannel()
+    public function chat()
     {
-        return TwitchToken::chatChannel('zarlach');
+        return TwitchToken::chat('zarlach');
     }
 
     public function chatBadges()
@@ -44,7 +44,7 @@ class ChatController extends Controller
         return TwitchToken::chatBadges('zarlach');
     }
 
-    public function unignoreUser()
+    public function chatEmoticons()
     {
         return TwitchToken::chatEmoticons();
     }

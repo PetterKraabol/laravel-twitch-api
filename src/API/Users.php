@@ -11,19 +11,19 @@ class Users extends Api
     }
 
     // Authenticated user object
-    public function authenticatedUser($token = null)
+    public function authUser($token = null)
     {
         return $this->sendRequest('GET', 'user', $this->getToken($token));
     }
 
-    // An authenticated user is following these channels
-    public function streamsFollowed($token = null)
+    // Followed streams who are live
+    public function liveChannels($token = null)
     {
         return $this->sendRequest('GET', 'streams/followed', $this->getToken($token));
     }
 
-    // An authenticated user is following these videos
-    public function videosFollowed($token = null)
+    // Videos from channels you follow
+    public function followedChannelVideos($token = null)
     {
         return $this->sendRequest('GET', 'videos/followed', $this->getToken($token));
     }

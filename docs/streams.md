@@ -9,7 +9,7 @@ Twitch streams
 ```php
 <?php
 // Get stream object if live
-streamsChannel($channel);
+liveChannel($channel);
 
 // List of streams, ordered by the number of viewers
 $options = [
@@ -26,7 +26,7 @@ $options = [
     'limit' => 10,
     'offset' => 0,
 ];
-streamsFeatured($options);
+featuredStreams($options);
 
 // Get summary of active streams
 $options = [
@@ -34,7 +34,7 @@ $options = [
     'limit'  => 10,
     'offset' => 0,
 ];
-streamSummary($options);
+streamSummaries($options);
 
 ```
 
@@ -56,7 +56,7 @@ class StreamsController extends Controller
 {
     public function stream()
     {
-        return TwitchToken::streamsChannel('zarlach');
+        return TwitchToken::liveChannel('zarlach');
     }
 
     public function streamList()
