@@ -16,7 +16,7 @@ Add this repository and require the package in your ```composer.json```.
 ```
 ```json
 "require": {
-    "petterkraabol/laravel-twitch-api": "~1.0"
+    "zarlach/laravel-twitch-api": "~1.0"
 },
 ```
 Update composer
