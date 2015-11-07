@@ -2,36 +2,31 @@
 
 An easy-to-use RESTful API for Laravel 5.1
 
-## Work in Progress
-
-This API is currently in development and is not finished. Documentation, testing and programming is not done. The installation guide below will most likely not work.
-
 ## Installation
 
-Add this repository in your ```composer.json```
+Add this repository and require the package in your ```composer.json```.
 ```json
 "repositories": [
-  {
-      "url": "git@github.com:PetterKraabol/laravel-twitch-api.git",
-      "type": "git",
-      "reference": "master"
-  }
+    {
+        "url": "git@github.com:petterkraabol/laravel-twitch-api.git",
+        "type": "git",
+        "reference": "master"
+    }
 ],
 ```
-
-Then require it
-
 ```json
-  "zarlach/laravel-twitch-api": "~1.0"
+"require": {
+    "petterkraabol/laravel-twitch-api": "~1.0"
+},
 ```
 
-In ```config/app.php``` add ```providers```
+In ```config/app.php```, add this provider in ```providers```
 
 ```php
 Zarlach\TwitchApi\Providers\TwitchApiServiceProvider::class,
 ```
 
-Add aliash in ```aliases```
+Add this facade in ```aliases```
 
 ```php
 'TwitchApi' => Zarlach\TwitchApi\Facades\TwitchApiServiceFacade::class,
@@ -44,12 +39,9 @@ php artisan vendor:publish --force
 ```
 
 ## To-Do
-- Testing
 - Authentication
 - Submit repo to Packagist.org for Composer
 
-## Notes
+## Documentation
 
-- Twitch API is described in detail in their repository [justintv/Twitch-API](https://github.com/justintv/twitch-api)
-
-- This package uses [guzzle/guzzle](https://github.com/guzzle/guzzle) for HTTP requests.
+You'll find documentation markdown files in the ```docs``` folder.

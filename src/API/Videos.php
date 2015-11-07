@@ -19,7 +19,7 @@ class Videos extends Api
     }
 
     // List of channel videos
-    public function channelsVideo($channel, $options = [])
+    public function channelsVideo($channel, $options = []])
     {
         $availableOptions = ['limit', 'offset', 'broadcasts', 'hls'];
 

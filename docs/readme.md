@@ -1,80 +1,15 @@
 # Documentation
 
-## Example Usage
+I hate bad documentation. I've therefore tried to do this as simple as possible for anyone to understand. I will document every function you will be using in your Laravel application and included very easy-to-understand example uses that should help you.
 
-File: ```app/Https/Controllers/TwitchApiController.php```
+## General info
 
-Getting channel info
+Some functions has an optional ```$token``` parameter that defaults to *null*. If this is not set, it will look for a token you can set by ```setToken()``` from the Api class: ```TwitchApi::setToken('xxxxxxxxxxxxxx');```. If it does not find any token, an exception will be given from ```RequestRequiresAuthenticationException.php```.
 
-```php
-<?php
+## Twitch API
 
-namespace App\Http\Controllers;
+This package is based on the [justintv/twitch-api](https://github.com/justintv/twitch-api) Twitch API v3. For a more detailed description of objects retrieved from Twitch, visit their repository.
 
-use TwitchApi;
-use App\Http\Requests;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+## Dependencies
 
-class TwitchApiController extends Controller
-{
-    public function channel()
-    {
-        return TwitchApi::channel('zarlach');
-    }
-}
-```
-
-## Functions
-
-```$token``` parameter is optional. If not specificed, it will try and get a token you already set.
-
-```php
-<?php
-
-// Set token
-TwitchApi::setToken($token);
-
-// Get token
-$token = TwitchApi::getToken();
-```
-
-### Blocked (ignored) users
-```php
-<?php
-
-// List of blocked users
-TwitchApi::blocks($user, $token);
-
-// Block a user
-TwitchApi::putBlock($user, $target, $token);
-
-// Unblock user
-TwitchApi::deleteBlock($user, $target, $token);
-
-```
-
-### Channel
-```php
-<?php
-
-// Channel
-TwitchApi::channel($channel);
-
-// Authenticated channel
-TwitchApi::authenticatedChannel($token);
-
-// Update channel
-$options = array(
-    'status' => 'Kappa Stream',
-    'game'   => 'RuneScape',
-    'delay'  => 0
-);
-TwitchApi::putChannel($channel, $options, $token);
-
-// Delete (rest) stream key
-TwitchApi::deleteStreamKey($channel, $token);
-
-// Post (run) commercial
-TwitchApi::postCommercial($channel, $length = 30, $tokens);
-```
+This package uses [Guzzle 6.1](https://github.com/guzzle/guzzle) to handle requests to Twitch.

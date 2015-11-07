@@ -24,6 +24,8 @@ class TwitchApiService extends Api
      * Authentication
      */
 
+    // Coming soon.
+
     /**
      * Blocks
      */
