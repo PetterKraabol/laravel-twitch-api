@@ -6,6 +6,8 @@ I hate bad documentation. I've therefore tried to do this as simple as possible 
 
 Some functions has an optional ```$token``` parameter that defaults to *null*. If this is not set, it will look for a token you can set by ```setToken()``` from the Api class: ```TwitchApi::setToken('xxxxxxxxxxxxxx');```. If it does not find any token, an exception will be given from ```RequestRequiresAuthenticationException.php```.
 
+For security enhancements, any *http* URLs from Twitch, such as image links, are automatically transformed to *https*.
+
 ## Twitch API
 
 This package is based on the [justintv/twitch-api](https://github.com/justintv/twitch-api) Twitch API v3. For a more detailed description of objects retrieved from Twitch, visit their repository.

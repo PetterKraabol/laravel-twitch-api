@@ -72,7 +72,7 @@ class Api
     public function sendRequest($type = 'GET', $path = '', $token = false, $options = [], $availableOptions = [])
     {
         $response = $this->client->request($type, $path, $this->generateHeaders($token, $options, $availableOptions));
-        return json_decode($response->getBody(), true);
+        return json_decode(str_replace('http://', 'https://', $response->getBody()), true);
     }
 
     /**

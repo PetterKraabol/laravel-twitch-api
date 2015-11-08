@@ -26,6 +26,10 @@ Publish config, then configure your ```config/twitch-api.php```
 php artisan vendor:publish
 ```
 
+## Features
+ - Easy integration with Laravel
+ - SSL for insecure http urls
+
 ## Status (what's broken)
 
 Here's a list of known bugs or non-working functions.
@@ -35,7 +39,7 @@ Here's a list of known bugs or non-working functions.
 | Function | Description |
 | -------- | ----------- |
 | Update channel | ```$options``` |
-| Reset stream key | Currently not working, needs testing. |
+| Reset stream key | ```$length``` ( ```$options``` ) |
 | Run commercial | ```$options``` |
 | Chat functions | ```$options``` |
 | Followers | ```$options``` |
