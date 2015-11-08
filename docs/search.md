@@ -45,8 +45,6 @@ File: ```app/Https/Controllers/SearchController.php```
 namespace App\Http\Controllers;
 
 use TwitchApi;
-use App\Http\Requests;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class SearchController extends Controller

@@ -35,8 +35,6 @@ File: ```app/Https/Controllers/SubscriptionController.php```
 namespace App\Http\Controllers;
 
 use TwitchApi;
-use App\Http\Requests;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class SubscriptionController extends Controller

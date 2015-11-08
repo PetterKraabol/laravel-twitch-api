@@ -31,8 +31,6 @@ File: ```app/Https/Controllers/TeamController.php```
 namespace App\Http\Controllers;
 
 use TwitchApi;
-use App\Http\Requests;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class TeamController extends Controller

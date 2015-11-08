@@ -1,4 +1,5 @@
-# Api
+NOTE
+Note# Api
 
 The Api class contains the core functions of the package. All other API functions extend from this.
 
@@ -26,8 +27,6 @@ Return channel object based on an OAuth token.
 namespace App\Http\Controllers;
 
 use TwitchApi;
-use App\Http\Requests;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class TokenController extends Controller

@@ -32,9 +32,7 @@ File: ```app/Https/Controllers/UsersController.php```
 
 namespace App\Http\Controllers;
 
-use TwitchApi;
-use App\Http\Requests;
-use Illuminate\Http\Request;
+use TwitchApi
 use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
