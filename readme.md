@@ -1,6 +1,6 @@
 # Twitch RESTful API for Laravel
 
-An easy-to-use RESTful API for Laravel 5.1
+An easy-to-use RESTful API for Laravel 5.2
 
 ## Installation
 
