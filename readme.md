@@ -34,7 +34,7 @@ php artisan vendor:publish
 
 Here's a list of known bugs or non-working functions.
 
-*Functions with ```$options``` are currently not working.*
+*Functions with ```$options``` are currently not working. The commands works fine without this parameter.*
 
 | Function | Description |
 | -------- | ----------- |
