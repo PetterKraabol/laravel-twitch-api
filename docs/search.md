@@ -55,7 +55,7 @@ class SearchController extends Controller
             'query'  => 'zarlach',
         ];
 
-        return TwitchToken::searchChannels($options);
+        return TwitchApi::searchChannels($options);
     }
 }
 ```

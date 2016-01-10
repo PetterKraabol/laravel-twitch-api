@@ -54,7 +54,7 @@ class StreamsController extends Controller
 {
     public function stream()
     {
-        return TwitchToken::liveChannel('zarlach');
+        return TwitchApi::liveChannel('zarlach');
     }
 
     public function streamList()
@@ -63,7 +63,7 @@ class StreamsController extends Controller
             'game' => 'RuneScape',
         ];
 
-        return TwitchTokens::streams($options);
+        return TwitchApi::streams($options);
     }
 }
 ```

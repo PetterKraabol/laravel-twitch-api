@@ -61,7 +61,7 @@ class FollowController extends Controller
         $options = [
             'limit' => 100,
         ];
-        return TwitchToken::followers('zarlach', $options);
+        return TwitchApi::followers('zarlach', $options);
     }
 
     public function followChannel()

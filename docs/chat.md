@@ -34,17 +34,17 @@ class ChatController extends Controller
 {
     public function chat()
     {
-        return TwitchToken::chat('zarlach');
+        return TwitchApi::chat('zarlach');
     }
 
     public function chatBadges()
     {
-        return TwitchToken::chatBadges('zarlach');
+        return TwitchApi::chatBadges('zarlach');
     }
 
     public function chatEmoticons()
     {
-        return TwitchToken::chatEmoticons();
+        return TwitchApi::chatEmoticons();
     }
 }
 ```

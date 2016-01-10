@@ -33,14 +33,14 @@ class RootController extends Controller
 {
     public function root()
     {
-        return TwitchToken::root();
+        return TwitchApi::root();
     }
 
     public function authRoot()
     {
-        TwitchToken::setToken('xxxxxxxxxxxxxx');
+        TwitchApi::setToken('xxxxxxxxxxxxxx');
 
-        return TwitchToken::authRoot();
+        return TwitchApi::authRoot();
     }
 }
 ```

@@ -37,7 +37,7 @@ class IgnoreController extends Controller
     {
         TwitchApi::setToken('xxxxxxxxxxxxxxxxx');
 
-        return TwitchToken::ignoreList('zarlach');
+        return TwitchApi::ignoreList('zarlach');
     }
 
     public function ignoreUser()

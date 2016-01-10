@@ -37,7 +37,7 @@ class GamesController extends Controller
         $options = [
             'limit' => 5,
         ];
-        return TwitchToken::topGames($options);
+        return TwitchApi::topGames($options);
     }
 }
 ```

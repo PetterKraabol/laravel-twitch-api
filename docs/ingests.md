@@ -28,7 +28,7 @@ class IngestsController extends Controller
 {
     public function ingestsList()
     {
-        return TwitchToken::ingests();
+        return TwitchApi::ingests();
     }
 }
 ```
