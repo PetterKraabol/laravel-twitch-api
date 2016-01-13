@@ -3,6 +3,7 @@
 namespace Zarlach\TwitchApi\API;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Request;
 use Zarlach\TwitchApi\Exceptions\RequestRequiresAuthenticationException;
 
 class Api
@@ -24,12 +25,19 @@ class Api
      */
     public function __construct($token = null)
     {
-        if($token) $this->setToken($token);
+
+        // Set token if given
+        if ($token) {
+            $this->setToken($token);
+        }
+
+        // GuzzleHttp Client with default parameters.
         $this->client = new Client([
             'base_uri' => 'https://api.twitch.tv/kraken/',
-            'timeout'  => 2.0,
             'defaults' => [
-                'headers' => ['Accept' => 'application/vnd.twitchtv.v3+json']
+                'headers' => [
+                    'Accept' => 'application/vnd.twitchtv.v3+json'
+                ]
             ]
         ]);
     }
@@ -51,12 +59,18 @@ class Api
      */
     public function getToken($token = null)
     {
-        if($token)
+
+        // If given parameter is not null, return this parameter
+        if ($token) {
             return $token;
+        }
 
-        if(!$this->token)
+        // If token is null and no token has previously been set
+        if (!$this->token) {
             throw new RequestRequiresAuthenticationException();
+        }
 
+        // Return token that has previously been set
         return $this->token;
     }
 
@@ -71,29 +85,56 @@ class Api
      */
     public function sendRequest($type = 'GET', $path = '', $token = false, $options = [], $availableOptions = [])
     {
-        $response = $this->client->request($type, $path, $this->generateHeaders($token, $options, $availableOptions));
-        return json_decode(str_replace('http://', 'https://', $response->getBody()), true);
+        // GET parameters
+        $path = ($type == 'GET') ? $this->generateUrl($path, $options, $availableOptions) : $path;
+
+        // Request object
+        $request = new Request($type, $path);
+
+        // Data for sending
+        $data = $this->generateData($token, $options, $availableOptions);
+
+        // Send request with data and get a response
+        $response = $this->client->send($request, $data);
+
+        // Return body in JSON data
+        return json_decode($response->getBody(), true);
     }
 
     /**
-     * Default Request Headers
+     * Generate URL with queries
+     * @param  String $url              Original URL
+     * @param  Array $options           Parameter values
+     * @param  Array $availableOptions  Parameters
+     * @return String                   URL with queries
+     */
+    public function generateUrl($url, $options, $availableOptions)
+    {
+
+        // Append parameters to url
+        foreach ($availableOptions as $parameter) {
+            if (isset($options[$parameter])) {
+                $url .= (parse_url($url, PHP_URL_QUERY) ? '&' : '?').$parameter.'='.$options[$parameter];
+            }
+        }
+
+        return $url;
+    }
+
+    /**
+     * Generate Send Data
      *
      * @param  String $token Twitch OAuth Token
      * @return Array
      */
-    public function generateHeaders($token = false, $options = [], $availableOptions = [])
+    public function generateData($token = false, $options = [], $availableOptions = [])
     {
-        foreach ($availableOptions as $option) {
-            if (isset($options[$option])) {
-                $options[$option] = $options[$option];
-            }
-        }
 
-        $headers['form_params'] = $options;
+        // Data types
+        $data = [];
+        $data['headers'] = $token ? ['Authorization' => 'OAuth '.$token] : null;
+        $data['json']    = isset($options['json']) ? $options['json'] : null;
 
-        if($token)
-            $headers['headers'] = ['Authorization' => 'OAuth '.$this->getToken()];
-
-        return $headers;
+        return $data;
     }
 }

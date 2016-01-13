@@ -27,7 +27,7 @@ class Streams extends Api
     }
 
     // Get summary of active streams
-    public function streamSummary($options = [])
+    public function streamSummaries($options = [])
     {
         $availableOptions = ['game', 'limit', 'offset'];
 

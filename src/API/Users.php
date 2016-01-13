@@ -11,7 +11,7 @@ class Users extends Api
     }
 
     // Authenticated user object
-    public function authUser($token = null)
+    public function authenticatedUser($token = null)
     {
         return $this->sendRequest('GET', 'user', $this->getToken($token));
     }

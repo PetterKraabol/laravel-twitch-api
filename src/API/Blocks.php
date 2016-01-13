@@ -11,7 +11,7 @@ class Blocks extends Api
     }
 
     // Block a user
-    public function putBlock($user, $tagret, $token = null)
+    public function putBlock($user, $target, $token = null)
     {
         return $this->sendRequest('PUT', 'users/'.$user.'/blocks/'.$target, $this->getToken($token));
     }

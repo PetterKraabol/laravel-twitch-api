@@ -1,12 +1,10 @@
 # Documentation
 
-I hate bad documentation. I've therefore tried to do this as simple as possible for anyone to understand. I will document every function you will be using in your Laravel application and included very easy-to-understand example uses that should help you.
+This is a documentation of every function with some code examples that should help you out.
 
 ## General info
 
-Some functions has an optional ```$token``` parameter that defaults to *null*. If this is not set, it will look for a token you can set by ```setToken()``` from the Api class: ```TwitchApi::setToken('xxxxxxxxxxxxxx');```. If it does not find any token, an exception will be given from ```RequestRequiresAuthenticationException.php```.
-
-For security enhancements, any *http* URLs from Twitch, such as image links, are automatically transformed to *https*.
+Some functions has an optional ```$token``` parameter that defaults to *null*. If this is not set, it will look for a token you can set by ```setToken()``` from the Api class: ```TwitchApi::setToken('xxxxxxxxxxxxxx');```. If it does not find any token, an ```RequestRequiresAuthenticationException.php``` exception will be given.
 
 ## Twitch API
 

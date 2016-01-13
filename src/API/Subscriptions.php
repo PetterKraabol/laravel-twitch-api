@@ -19,7 +19,7 @@ class Subscriptions extends Api
     }
 
     // Get channel object of a single channel subscriber
-    public function userSubscriptionChannel($user, $channel, $token = null)
+    public function userSubscriptionChannel($channel, $user, $token = null)
     {
         return $this->sendRequest('GET', 'users/'.$user.'/subscriptions'.$channel, $this->getToken($token));
     }

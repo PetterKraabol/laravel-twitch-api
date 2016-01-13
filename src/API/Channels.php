@@ -19,8 +19,8 @@ class Channels extends API
     // Update channel
     public function putChannel($channel, $options, $token = null)
     {
-        $availableOptions = ['status', 'game', 'delay'];
-        $options = array('stream' => $options) ;
+        $availableOptions = ['json' => ['channel' => ['status', 'game', 'delay']]];
+        $options = ['json' => ['channel' => $options]];
 
         return $this->sendRequest('PUT', 'channels/'.$channel, $this->getToken($token), $options, $availableOptions);
     }

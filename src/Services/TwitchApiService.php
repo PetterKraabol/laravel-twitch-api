@@ -95,10 +95,10 @@ class TwitchApiService extends Api
         return $chat->chatBadges($channel);
     }
 
-    public function chatEmoticons()
+    public function chatEmoticons($channel)
     {
-        $chat = new Chat();
-        return $chat->chatEmoticons();
+        $chat = new Chat($channel);
+        return $chat->chatEmoticons($channel);
     }
 
     /**
@@ -176,17 +176,21 @@ class TwitchApiService extends Api
         return $search->searchChannels($options);
     }
 
+    /* Coming Soon, use streams() for now
+
     public function searchStreams($options)
     {
         $search = new Search();
         return $search->searchStreams($options);
-    }
+    }*/
+
+    /* Coming Soon
 
     public function searchGames($options)
     {
         $search = new Search();
         return $search->searchGames($options);
-    }
+    }*/
 
     /**
      * Streams
@@ -212,7 +216,7 @@ class TwitchApiService extends Api
     public function streamSummaries($options = [])
     {
         $streams = new Streams();
-        return $streams->streamsSummary($options);
+        return $streams->streamSummaries($options);
     }
 
     /**
@@ -220,20 +224,20 @@ class TwitchApiService extends Api
      */
     public function subscribers($channel, $options = [], $token = null)
     {
-        $subscriptions = new Subscriptions($this->getToken($token));
-        return $subscriptions->channelsSubscriptions($channel, $options);
+        $subscriptions = new Subscriptions();
+        return $subscriptions->channelsSubscriptions($channel, $options, $this->getToken($token));
     }
 
     public function subscriber($channel, $user, $token = null)
     {
-        $subscriptions = new Subscriptions($this->getToken($token));
-        return $subscriptions->channelSubscriptionUser($channel, $user);
+        $subscriptions = new Subscriptions();
+        return $subscriptions->channelSubscriptionUser($channel, $user, $this->getToken($token));
     }
 
-    public function subscribedToChannel($user, $channel, $token = null)
+    public function subscribedToChannel($channel, $user, $token = null)
     {
-        $subscriptions = new Subscriptions($this->getToken($token));
-        return $subscriptions->userSubscriptionChannel($user, $channel);
+        $subscriptions = new Subscriptions();
+        return $subscriptions->userSubscriptionChannel($channel, $user, $this->getToken($token));
     }
 
     /**
@@ -262,20 +266,14 @@ class TwitchApiService extends Api
 
     public function authUser($token = null)
     {
-        $users = new Users($this->getToken($token));
-        return $users->authenticatedUser();
+        $users = new Users();
+        return $users->authenticatedUser($this->getToken($token));
     }
 
-    public function streamsFollowed($token = null)
+    public function followedChannelVideos($token = null)
     {
-        $users = new Users($this->getToken($token));
-        return $users->streamsFollowed();
-    }
-
-    public function videosFollowed($token = null)
-    {
-        $users = new Users($this->getToken($token));
-        return $users->videosFollowed();
+        $users = new Users();
+        return $users->followedChannelVideos($this->getToken($token));
     }
 
     /**
@@ -296,6 +294,6 @@ class TwitchApiService extends Api
     public function channelVideos($channel, $options = [])
     {
         $videos = new Videos();
-        return $videos->channelsVideo($channel, $options);
+        return $videos->channelVideos($channel, $options);
     }
 }

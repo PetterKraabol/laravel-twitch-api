@@ -26,36 +26,17 @@ Publish config, then configure your ```config/twitch-api.php```
 php artisan vendor:publish
 ```
 
-## Features
- - Easy integration with Laravel
- - SSL for insecure http urls
+## Status
 
-## Status (what's broken)
-
-Here's a list of known bugs or non-working functions.
-
-*Functions with ```$options``` are currently not working. The commands works fine without this parameter.*
-
-| Function | Description |
+| Function | Status |
 | -------- | ----------- |
-| Update channel | ```$options``` |
-| Reset stream key | ```$length``` ( ```$options``` ) |
-| Run commercial | ```$options``` |
-| Chat functions | ```$options``` |
-| Followers | ```$options``` |
-| Followings | ```$options``` |
-| Follow | ```$options``` |
-| Unfollow | ```$options``` |
-| Top games with options | ```$options``` |
-| Search channels | ```$options``` |
-| Search streams | ```$options``` |
-| Search games | ```$options``` |
-| Streams with options | ```$options``` |
-| Featured Streams with options | ```$options``` |
-| Stream summaries | ```$options``` |
-| Subscribers with options | ```$options``` |
-| Teams with options | ```$options``` |
+| searchStreams | Coming soon |
+| searchGames | Coming soon |
 
 ## Documentation
 
 You'll find documentation markdown files in the ```docs``` folder.
+
+## Changelog
+
+A changelog can be found in ```changelog.md```

@@ -21,7 +21,7 @@ subscribers($channel, $options, $token);
 subscriber($channel, $user, $token);
 
 // Get channel object of a single channel subscriber
-subscribedToChannel($user, $channel, $token);
+subscribedToChannel($channel, $user, $token);
 
 ```
 
