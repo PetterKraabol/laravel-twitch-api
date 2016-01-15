@@ -32,7 +32,7 @@ use App\Http\Controllers\Controller;
 
 class GamesController extends Controller
 {
-    public function followList()
+    public function topGames()
     {
         $options = [
             'limit' => 5,
