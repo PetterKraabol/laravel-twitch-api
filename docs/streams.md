@@ -8,6 +8,7 @@ Twitch streams
 
 ```php
 <?php
+
 // Get stream object if live
 liveChannel($channel);
 
