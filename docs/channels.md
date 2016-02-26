@@ -31,7 +31,7 @@ runCommercial($channel, $length = 30, $token);
 ```
 ## Example Usage
 
-File: ```app/Https/Controllers/ChannelController.php```
+File: ```App/Https/Controllers/ChannelController.php```
 
 ```php
 <?php

@@ -23,7 +23,7 @@ team($team);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/TeamController.php```
+File: ```App/Https/Controllers/TeamController.php```
 
 ```php
 <?php

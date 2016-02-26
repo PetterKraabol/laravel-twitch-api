@@ -25,7 +25,7 @@ followedChannelVideos($token);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/UsersController.php```
+File: ```App/Https/Controllers/UsersController.php```
 
 ```php
 <?php

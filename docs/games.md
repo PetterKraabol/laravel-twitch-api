@@ -20,7 +20,7 @@ topGames($options);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/GamesController.php```
+File: ```App/Https/Controllers/GamesController.php```
 
 ```php
 <?php

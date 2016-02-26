@@ -14,7 +14,7 @@ ingests();
 
 ## Example Usage
 
-File: ```app/Https/Controllers/IngestsController.php```
+File: ```App/Https/Controllers/IngestsController.php```
 
 ```php
 <?php

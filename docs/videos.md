@@ -28,7 +28,7 @@ channelVideos($channel, $options);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/VideosController.php```
+File: ```App/Https/Controllers/VideosController.php```
 
 ```php
 <?php

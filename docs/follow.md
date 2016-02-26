@@ -44,7 +44,7 @@ unfollow($user, $channel, $token);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/FollowController.php```
+File: ```App/Https/Controllers/FollowController.php```
 
 ```php
 <?php

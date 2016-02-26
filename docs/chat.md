@@ -20,7 +20,7 @@ chatEmoticons();
 
 ## Example Usage
 
-File: ```app/Https/Controllers/ChatController.php```
+File: ```App/Https/Controllers/ChatController.php```
 
 ```php
 <?php

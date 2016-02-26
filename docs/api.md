@@ -17,7 +17,7 @@ $token = getToken();
 
 ## Example Usage
 
-File: ```app/Https/Controllers/TokenController.php```
+File: ```App/Https/Controllers/TokenController.php```
 
 Return channel object based on an OAuth token.
 

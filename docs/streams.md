@@ -40,7 +40,7 @@ streamSummaries($options);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/StreamsController.php```
+File: ```App/Https/Controllers/StreamsController.php```
 
 ```php
 <?php

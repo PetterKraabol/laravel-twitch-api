@@ -21,7 +21,7 @@ unignore($user, $target, $token);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/IgnoreController.php```
+File: ```App/Https/Controllers/IgnoreController.php```
 
 ```php
 <?php
@@ -49,9 +49,9 @@ class IgnoreController extends Controller
 
     public function unignoreUser()
     {
-        TwitchApi::unignore('xxxxxxxxxxxxxxxxx');
+        TwitchApi::setToken('xxxxxxxxxxxxxxxxx');
 
-        return TwitchApi::deleteBlock('zarlach', 'kappa');
+        return TwitchApi::unignore('zarlach', 'kappa');
     }
 }
 ```

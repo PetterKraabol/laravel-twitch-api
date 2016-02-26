@@ -37,7 +37,7 @@ searchGames($options);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/SearchController.php```
+File: ```App/Https/Controllers/SearchController.php```
 
 ```php
 <?php

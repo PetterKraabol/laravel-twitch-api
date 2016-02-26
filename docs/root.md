@@ -19,7 +19,7 @@ authRoot($token);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/RootController.php```
+File: ```App/Https/Controllers/RootController.php```
 
 ```php
 <?php

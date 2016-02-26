@@ -27,7 +27,7 @@ subscribedToChannel($channel, $user, $token);
 
 ## Example Usage
 
-File: ```app/Https/Controllers/SubscriptionController.php```
+File: ```App/Https/Controllers/SubscriptionController.php```
 
 ```php
 <?php
