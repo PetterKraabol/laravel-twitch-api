@@ -5,6 +5,7 @@ namespace Zarlach\TwitchApi\API;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use Zarlach\TwitchApi\Exceptions\RequestRequiresAuthenticationException;
+use Zarlach\TwitchApi\Exceptions\RequestRequiresClientIdException;
 
 class Api
 {
@@ -12,6 +13,11 @@ class Api
      * @var token
      */
     protected $token;
+
+    /**
+     * @var clientId
+     */
+    protected $clientId;
 
     /**
      * @var GuzzleClient
@@ -23,8 +29,15 @@ class Api
      *
      * @param token $token Twitch OAuth Token
      */
-    public function __construct($token = null)
+    public function __construct($clientId = null, $token = null)
     {
+
+        // Set clientId if given else get from config
+        if($clientId) {
+            $this->setClientId($clientId);
+        } else if(config('twitch-api.client_id')) {
+            $this->setClientId(config('twitch-api.client_id'));
+        }
 
         // Set token if given
         if ($token) {
@@ -40,6 +53,39 @@ class Api
                 ]
             ]
         ]);
+    }
+
+    /**
+     * Set clientId
+     *
+     * @var String $clientId Twitch Client-ID
+     */
+    public function setClientId($clientId)
+    {
+        $this->clientId = $clientId;
+    }
+
+    /**
+     * Get clientId
+     *
+     * @param string clientId optional
+     * @return string clientId
+     */
+    public function getClientId($clientId = null)
+    {
+
+        // Return given parameter
+        if($clientId) {
+            return $clientId;
+        }
+
+        // If clientId is null and no clientId has previously been set
+        if(!$this->clientId) {
+            throw new RequestRequiresClientIdException();
+        }
+
+        // Return clientId that has previously been set
+        return $this->clientId;
     }
 
     /**
@@ -85,11 +131,15 @@ class Api
      */
     public function sendRequest($type = 'GET', $path = '', $token = false, $options = [], $availableOptions = [])
     {
+
         // GET parameters
         $path = ($type == 'GET') ? $this->generateUrl($path, $options, $availableOptions) : $path;
 
+        // Get the Client-ID
+        $defaultHeaders = ['Client-ID' => $this->getClientId()];
+
         // Request object
-        $request = new Request($type, $path);
+        $request = new Request($type, $path, $defaultHeaders);
 
         // Data for sending
         $data = $this->generateData($token, $options, $availableOptions);
