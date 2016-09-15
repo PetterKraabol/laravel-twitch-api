@@ -32,9 +32,11 @@ class Api
     public function __construct($clientId = null, $token = null)
     {
 
-        // Set clientId if given
+        // Set clientId if given else get from config
         if($clientId) {
             $this->setClientId($clientId);
+        } else if(config('twitch-api.client_id')) {
+            $this->setClientId(config('twitch-api.client_id'));
         }
 
         // Set token if given
@@ -72,11 +74,9 @@ class Api
     public function getClientId($clientId = null)
     {
 
-        // Return given parameter or config value
+        // Return given parameter
         if($clientId) {
             return $clientId;
-        } else if(config('twitch-api.client_id')){
-            return config('twitch-api.client_id');
         }
 
         // If clientId is null and no clientId has previously been set
