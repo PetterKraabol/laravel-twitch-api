@@ -12,6 +12,13 @@ setToken($token);
 
 // Get token
 $token = getToken();
+
+// Set twitch client id
+setClientId($clientId);
+
+// Get twitch client id
+$clientId = getClientId();
+
 ```
 
 ## Example Usage

@@ -27,15 +27,16 @@ class Api
     /**
      * Construction
      *
-     * @param token $token Twitch OAuth Token
+     * @param string $clientId Twitch client id
+     * @param string $token Twitch OAuth Token
      */
     public function __construct($clientId = null, $token = null)
     {
 
         // Set clientId if given else get from config
-        if($clientId) {
+        if ($clientId) {
             $this->setClientId($clientId);
-        } else if(config('twitch-api.client_id')) {
+        } elseif (config('twitch-api.client_id')) {
             $this->setClientId(config('twitch-api.client_id'));
         }
 
@@ -58,7 +59,7 @@ class Api
     /**
      * Set clientId
      *
-     * @var String $clientId Twitch Client-ID
+     * @param string $clientId Twitch client id
      */
     public function setClientId($clientId)
     {
@@ -75,12 +76,12 @@ class Api
     {
 
         // Return given parameter
-        if($clientId) {
+        if ($clientId) {
             return $clientId;
         }
 
         // If clientId is null and no clientId has previously been set
-        if(!$this->clientId) {
+        if (!$this->clientId) {
             throw new RequestRequiresClientIdException();
         }
 
@@ -99,9 +100,10 @@ class Api
     }
 
     /**
-     * Get Twitch OAuth Token
+     * Get Twitch token
      *
-     * @return string Token
+     * @param  string $token Twitch token
+     * @return string        Twitch token
      */
     public function getToken($token = null)
     {
@@ -121,13 +123,15 @@ class Api
     }
 
     /**
-     * Authenticated Request
+     * Send request to Twitch API
      *
-     * @param  string $type  Request Type
-     * @param  string $path   Request URL
-     * @param  string $token Twitch OAuth Token
+     * @param  string  $type             Request Type
+     * @param  string  $path             Request URL path
+     * @param  boolean $token            Twitch Token
+     * @param  array   $options          URL Parameters
+     * @param  array   $availableOptions Available URL Parameters
      *
-     * @return \GuzzleHttp\Message\Request|\GuzzleHttp\Message\RequestInterface
+     * @return JSON                      JSON object from Twitch
      */
     public function sendRequest($type = 'GET', $path = '', $token = false, $options = [], $availableOptions = [])
     {

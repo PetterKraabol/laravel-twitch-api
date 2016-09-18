@@ -4,7 +4,7 @@ This is a documentation of every function with some code examples that should he
 
 ## General info
 
-Some functions has an optional ```$token``` parameter that defaults to *null*. If this is not set, it will look for a token you can set by ```setToken()``` from the Api class: ```TwitchApi::setToken('xxxxxxxxxxxxxx');```. If it does not find any token, an ```RequestRequiresAuthenticationException.php``` exception will be given.
+Some functions have an optional ```$token``` parameter that defaults to *null*. If this is not set, it will look for a token you can set by ```setToken()``` from the Api class: ```TwitchApi::setToken('xxxxxxxxxxxxxx');```. If it does not find any token, an ```RequestRequiresAuthenticationException.php``` exception will be given.
 
 ## Twitch API
 
