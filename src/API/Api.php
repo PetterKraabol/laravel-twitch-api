@@ -125,11 +125,11 @@ class Api
     /**
      * Send request to Twitch API
      *
-     * @param  string  $type             Request Type
+     * @param  string  $type             Request type
      * @param  string  $path             Request URL path
-     * @param  boolean $token            Twitch Token
-     * @param  array   $options          URL Parameters
-     * @param  array   $availableOptions Available URL Parameters
+     * @param  boolean $token            Twitch token
+     * @param  array   $options          URL queries
+     * @param  array   $availableOptions Available URL queries
      *
      * @return JSON                      JSON object from Twitch
      */

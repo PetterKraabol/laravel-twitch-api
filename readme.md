@@ -26,6 +26,15 @@ Publish config, then configure your ```config/twitch-api.php```
 php artisan vendor:publish
 ```
 
+## Laravel environment variables
+
+It's recommended to add these variables in your ```.env``` file.
+```bash
+TWITCH_KEY=
+TWITCH_SECRET=
+TWITCH_REDIRECT_URI=
+```
+
 ## Status
 
 | Function | Status |
@@ -39,4 +48,4 @@ You'll find documentation markdown files in the ```docs``` folder.
 
 ## Changelog
 
-A changelog can be found in ```changelog.md```
+A list of changes is found in ```changelog.md```
