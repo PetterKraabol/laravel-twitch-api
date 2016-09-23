@@ -9,7 +9,7 @@ class Subscriptions extends Api
     {
         $availableOptions = ['limit', 'offset', 'direction'];
 
-        return $this->sendRequest('GET', 'channels/'.$channel.'subscriptions', $this->getToken($token), $options, $availableOptions);
+        return $this->sendRequest('GET', 'channels/'.$channel.'/subscriptions', $this->getToken($token), $options, $availableOptions);
     }
 
     // Get subscription object of a single channel subscriber
@@ -21,6 +21,6 @@ class Subscriptions extends Api
     // Get channel object of a single channel subscriber
     public function userSubscriptionChannel($channel, $user, $token = null)
     {
-        return $this->sendRequest('GET', 'users/'.$user.'/subscriptions'.$channel, $this->getToken($token));
+        return $this->sendRequest('GET', 'users/'.$user.'/subscriptions/'.$channel, $this->getToken($token));
     }
 }
