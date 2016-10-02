@@ -1,5 +1,7 @@
 # Subscriptions
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/subscribers.md)
+
 ## Functions
 
 ```$token``` is an optional parameter, but required to be set somewhere.

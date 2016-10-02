@@ -2,6 +2,8 @@
 
 Search for channels
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/search.md)
+
 ## Functions
 
 ```$options``` is an optional parameter.

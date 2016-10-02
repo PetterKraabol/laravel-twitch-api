@@ -2,6 +2,8 @@
 
 User objects, followings and followed videos.
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/users.md)
+
 ## Functions
 
 ```$token``` is an optional parameter, but required to be set somewhere.

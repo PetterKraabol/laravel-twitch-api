@@ -2,6 +2,8 @@
 
 For seeing blocked (ignored) users and (un)block a user.
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/blcoks.md)
+
 ## Functions
 ```$token``` is an optional parameter, but required to be set somewhere.
 

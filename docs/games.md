@@ -2,6 +2,8 @@
 
 Game top lists.
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/games.md)
+
 ## Functions
 
 ```$options``` is an optional parameter.

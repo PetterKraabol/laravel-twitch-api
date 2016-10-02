@@ -24,7 +24,17 @@ class TwitchApiService extends Api
      * Authentication
      */
 
-    // Coming soon.
+    public function getAccessToken($code)
+    {
+        $authentication = new Authentication();
+        return $authentication->getAccessToken($code);
+    }
+
+    public function getAuthenticationUrl($state = null, $forceVerify = false)
+    {
+        $authentication = new Authentication();
+        return $authentication->getAuthenticationUrl($state, $forceVerify);
+    }
 
     /**
      * Blocks

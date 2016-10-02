@@ -10,23 +10,25 @@ use Zarlach\TwitchApi\Exceptions\RequestRequiresClientIdException;
 class Api
 {
     /**
+     * Twitch token
      * @var token
      */
     protected $token;
 
     /**
+     * Twitch client id
      * @var clientId
      */
     protected $clientId;
 
     /**
+     * Guzzle is used to make http requests
      * @var GuzzleClient
      */
     protected $client;
 
     /**
      * Construction
-     *
      * @param string $clientId Twitch client id
      * @param string $token Twitch OAuth Token
      */
@@ -58,7 +60,6 @@ class Api
 
     /**
      * Set clientId
-     *
      * @param string $clientId Twitch client id
      */
     public function setClientId($clientId)
@@ -68,7 +69,6 @@ class Api
 
     /**
      * Get clientId
-     *
      * @param string clientId optional
      * @return string clientId
      */
@@ -91,7 +91,6 @@ class Api
 
     /**
      * Set Twitch OAuth Token
-     *
      * @param String $token OAuth token
      */
     public function setToken($token)
@@ -101,7 +100,6 @@ class Api
 
     /**
      * Get Twitch token
-     *
      * @param  string $token Twitch token
      * @return string        Twitch token
      */
@@ -124,13 +122,11 @@ class Api
 
     /**
      * Send request to Twitch API
-     *
      * @param  string  $type             Request type
      * @param  string  $path             Request URL path
      * @param  boolean $token            Twitch token
      * @param  array   $options          URL queries
      * @param  array   $availableOptions Available URL queries
-     *
      * @return JSON                      JSON object from Twitch
      */
     public function sendRequest($type = 'GET', $path = '', $token = false, $options = [], $availableOptions = [])
@@ -177,7 +173,6 @@ class Api
 
     /**
      * Generate Send Data
-     *
      * @param  String $token Twitch OAuth Token
      * @return Array
      */

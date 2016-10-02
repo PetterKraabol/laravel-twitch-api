@@ -2,6 +2,8 @@
 
 Channel objects, reset stream keys and play commercials
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/channels.md)
+
 ## Functions
 
 ```$token``` is an optional parameter, but required to be set somewhere.

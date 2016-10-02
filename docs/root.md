@@ -2,6 +2,8 @@
 
 Twitch API root
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/root.md)
+
 ## Functions
 
 ```$token``` is an optional parameter, but required to be set somewhere.

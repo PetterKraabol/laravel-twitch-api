@@ -2,6 +2,8 @@
 
 Twitch streaming servers.
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/ingests.md)
+
 ## Functions
 
 ```php

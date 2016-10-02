@@ -1,6 +1,6 @@
 # Documentation
 
-This is a documentation of every function with some code examples that should help you out.
+This is a documentation of every function with some code examples that should help you out. Code examples are following ```Laravel 5.3``` conventions.
 
 ## General info
 

@@ -2,6 +2,8 @@
 
 Follower lists, follow and unfollow.
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/follows.md)
+
 ## Functions
 
 ```$token``` is an optional parameter, but required to be set somewhere.

@@ -2,6 +2,8 @@
 
 Team lists and objects.
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/teams.md)
+
 ## Functions
 
 ```$options``` is an optional parameter.

@@ -2,6 +2,8 @@
 
 Video objects, top lists and channel videos.
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/videos.md)
+
 ## Functions
 
 ```$token``` is an optional parameter, but required to be set somewhere.

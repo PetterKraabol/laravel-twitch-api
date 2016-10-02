@@ -2,12 +2,14 @@
 
 Get chat objects, emotes and badges.
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/chat.md)
+
 ## Functions
 
 ```php
 <?php
 
-// List of all Twitch emote objects in a channel
+// List all end points
 chatChannel($channel);
 
 // List of chat badges in a channel

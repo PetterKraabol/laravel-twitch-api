@@ -2,6 +2,8 @@
 
 Twitch streams
 
+[Twitch API](https://github.com/justintv/Twitch-API/blob/master/streams.md)
+
 ## Functions
 
 ```$options``` is an optional parameter.
