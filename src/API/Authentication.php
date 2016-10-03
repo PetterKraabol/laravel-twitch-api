@@ -32,17 +32,18 @@ class Authentication extends Api
      * @param  string $code code returned from Twitch when user has signed in with their Twitch account
      * @return JSON         JSON response object containing the access token
      */
-    public function getAccessToken($code)
+    public function getAccessToken($code, $state = null)
     {
         $availableOptions = ['client_secret', 'grant_type', 'state', 'code', 'redirect_uri'];
 
         $options = [
             'client_secret' => config('twitch-api.client_secret'),
             'grant_type' => 'authorization_code',
-            'state' => $code,
+            'code' => $code,
+            'state' => $state,
             'redirect_uri' => config('twitch-api.redirect_url')
         ];
 
-        return $this->sendRequest('POST', 'oauth2/token', false, $options, $availableOptions)->access_token;
+        return $this->sendRequest('POST', 'oauth2/token', false, $options, $availableOptions)['access_token'];
     }
 }
