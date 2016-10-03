@@ -21,7 +21,7 @@ class Authentication extends Api
     {
         return 'https://api.twitch.tv/kraken/oauth2/authorize?response_type=code'
         .'&client_id='.config('twitch-api.client_id')
-        .'&redirect_uri='.config('twitch-api.redirect_uri')
+        .'&redirect_uri='.config('twitch-api.redirect_url')
         .'&scope='.join(config('twitch-api.scopes'), '+')
         .'&state='.$state
         .'&force_verify='.$forceVerify;
@@ -40,7 +40,7 @@ class Authentication extends Api
             'client_secret' => config('twitch-api.client_secret'),
             'grant_type' => 'authorization_code',
             'state' => $code,
-            'redirect_uri' => config('twitch-api.redirect_uri')
+            'redirect_uri' => config('twitch-api.redirect_url')
         ];
 
         return $this->sendRequest('POST', 'oauth2/token', false, $options, $availableOptions)->access_token;

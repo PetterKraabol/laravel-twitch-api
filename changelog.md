@@ -2,8 +2,11 @@
 
 ### 1.3.0
 #### News
-- Use ```TwitchApi::getAuthenticationUrl($state, $forceVerify)``` to get the redirection url for your user's to sign in through Twitch. ```$state``` and ```$forceVerify``` are optional, read about them [here](https://github.com/justintv/Twitch-API/blob/master/authentication.md#authorization-code-flow).
-- Use ```getAccessToken($code)``` to retrieve the Twitch token from Twitch after the user has signed in through Twitch and been redirected back to your application/website.
+- Use ```TwitchApi::getAuthenticationUrl($state, $forceVerify)``` to get the redirection url for your users to sign in through Twitch. ```$state``` and ```$forceVerify``` are optional, read about them [here](https://github.com/justintv/Twitch-API/blob/master/authentication.md#authorization-code-flow).
+- Use ```getAccessToken($code)``` to retrieve the Twitch token after the user has signed in through Twitch and been redirected back to your application/website.
+
+#### Fixes
+- ```chatBadges($channel)``` and ```chatEmoticons($channel)``` were duplicates.
 
 ### 1.2.1
 - A client id [is now required](https://blog.twitch.tv/client-id-required-for-kraken-api-calls-afbb8e95f843) for Twitch API calls. Make sure your Twitch client id is set in either ```.env``` using the ```TWITCH_KEY``` variable, or directly in ```config/twitch-api.php```.
