@@ -3,15 +3,16 @@
 namespace Zarlach\TwitchApi\API;
 
 /**
- * Twitch documentation: https://github.com/justintv/Twitch-API/blob/master/v3_resources/users.md
+ * Twitch documentation: https://github.com/justintv/Twitch-API/blob/master/v3_resources/users.md.
  */
-
 class Users extends Api
 {
     /**
-     * User object
-     * @param  string $user Username
-     * @return JSON         User object
+     * User object.
+     *
+     * @param string $user Username
+     *
+     * @return JSON User object
      */
     public function user($user)
     {
@@ -19,9 +20,11 @@ class Users extends Api
     }
 
     /**
-     * Authenticated user object
-     * @param  string $token Twitch token
-     * @return JSON          Authenticated user object
+     * Authenticated user object.
+     *
+     * @param string $token Twitch token
+     *
+     * @return JSON Authenticated user object
      */
     public function authenticatedUser($token = null)
     {
@@ -29,9 +32,11 @@ class Users extends Api
     }
 
     /**
-     * Followed streams who are live
-     * @param  string $token Twitch token
-     * @return JSON          List of streams
+     * Followed streams who are live.
+     *
+     * @param string $token Twitch token
+     *
+     * @return JSON List of streams
      */
     public function liveChannels($token = null)
     {
@@ -39,9 +44,11 @@ class Users extends Api
     }
 
     /**
-     * Videos from channels you follow
-     * @param  string $token Twitch token
-     * @return JSON          List of videos
+     * Videos from channels you follow.
+     *
+     * @param string $token Twitch token
+     *
+     * @return JSON List of videos
      */
     public function followedChannelVideos($token = null)
     {

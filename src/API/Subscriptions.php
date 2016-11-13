@@ -3,17 +3,18 @@
 namespace Zarlach\TwitchApi\API;
 
 /**
- * Twitch documentation: https://github.com/justintv/Twitch-API/blob/master/v3_resources/subscriptions.md
+ * Twitch documentation: https://github.com/justintv/Twitch-API/blob/master/v3_resources/subscriptions.md.
  */
-
 class Subscriptions extends Api
 {
     /**
-     * List of channel subscribers
-     * @param  string $channel Channel name
-     * @param  array  $options Subscriber list options
-     * @param  string $token   Twitch token
-     * @return JSON            List of subscribers
+     * List of channel subscribers.
+     *
+     * @param string $channel Channel name
+     * @param array  $options Subscriber list options
+     * @param string $token   Twitch token
+     *
+     * @return JSON List of subscribers
      */
     public function channelsSubscriptions($channel, $options = [], $token = null)
     {
@@ -23,11 +24,13 @@ class Subscriptions extends Api
     }
 
     /**
-     * Get subscription object of a single channel subscriber
-     * @param  string $channel Channel name
-     * @param  string $user    Username
-     * @param  string $token   Twitch name
-     * @return JSON            A channel subscriber
+     * Get subscription object of a single channel subscriber.
+     *
+     * @param string $channel Channel name
+     * @param string $user    Username
+     * @param string $token   Twitch name
+     *
+     * @return JSON A channel subscriber
      */
     public function channelSubscriptionUser($channel, $user, $token = null)
     {
@@ -35,11 +38,13 @@ class Subscriptions extends Api
     }
 
     /**
-     * Get user object of a single channel subscriber
-     * @param  string $channel Channel name
-     * @param  string $user    Username
-     * @param  string $token   Twitch token
-     * @return JSON            User object
+     * Get user object of a single channel subscriber.
+     *
+     * @param string $channel Channel name
+     * @param string $user    Username
+     * @param string $token   Twitch token
+     *
+     * @return JSON User object
      */
     public function userSubscriptionChannel($channel, $user, $token = null)
     {

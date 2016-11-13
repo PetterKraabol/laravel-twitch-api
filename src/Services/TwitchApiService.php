@@ -21,168 +21,190 @@ use Zarlach\TwitchApi\API\Videos;
 class TwitchApiService extends Api
 {
     /**
-     * Authentication
+     * Authentication.
      */
-
     public function getAccessToken($code, $state = null)
     {
         $authentication = new Authentication();
+
         return $authentication->getAccessToken($code, $state);
     }
 
     public function getAuthenticationUrl($state = null, $forceVerify = false)
     {
         $authentication = new Authentication();
+
         return $authentication->getAuthenticationUrl($state, $forceVerify);
     }
 
     /**
-     * Blocks
+     * Blocks.
      */
     public function ignoreList($user, $token = null)
     {
         $blocks = new Blocks($this->getToken($token));
+
         return $blocks->blocks($user);
     }
 
     public function ignore($user, $target, $token = null)
     {
         $blocks = new Blocks($this->getToken($token));
+
         return $blocks->putBlock($user, $target);
     }
 
     public function unignore($user, $target, $token = null)
     {
         $blocks = new Blocks($this->getToken($token));
+
         return $blocks->deleteBlock($user, $target);
     }
 
     /**
-     * Channels
+     * Channels.
      */
     public function channel($channel)
     {
         $channels = new Channels();
+
         return $channels->channel($channel);
     }
 
     public function authChannel($token = null)
     {
         $channels = new Channels($this->getToken($token));
+
         return $channels->authenticatedChannel();
     }
 
     public function updateChannel($channel, $options, $token = null)
     {
         $channels = new Channels($this->getToken($token));
+
         return $channels->putChannel($channel, $options);
     }
 
     public function resetStreamKey($channel, $token = null)
     {
         $channels = new Channels($this->getToken($token));
+
         return $channels->deleteStreamKey($channel);
     }
 
     public function runCommercial($channel, $length = 30, $token = null)
     {
         $channels = new Channels($this->getToken($token));
+
         return $channels->postCommercial($channel, $length);
     }
 
     /**
-     * Chat
+     * Chat.
      */
     public function chat($channel)
     {
         $chat = new Chat();
+
         return $chat->chatChannel($channel);
     }
 
     public function chatBadges($channel)
     {
         $chat = new Chat();
+
         return $chat->chatBadges($channel);
     }
 
     public function chatEmoticons($channel)
     {
         $chat = new Chat($channel);
+
         return $chat->chatEmoticons($channel);
     }
 
     /**
-     * Follow
+     * Follow.
      */
     public function followers($channel, $options = [])
     {
         $follow = new Follow();
+
         return $follow->channelFollows($channel, $options);
     }
 
     public function followings($user, $options)
     {
         $follow = new Follow();
+
         return $follow->userFollowsChannels($user, $options);
     }
 
     public function userIsFollowing($user, $channel)
     {
         $follow = new Follow();
+
         return $follow->userFollowsChannel($user, $channel);
     }
 
     public function follow($user, $channel, $options = [], $token = null)
     {
         $follow = new Follow($this->getToken($token));
+
         return $follow->authenticatedUserFollowsChannel($user, $channel, $options);
     }
 
     public function unfollow($user, $channel, $token = null)
     {
         $follow = new Follow($this->getToken($token));
+
         return $follow->authenticatedUserUnfollowsChannel($user, $channel);
     }
 
     /**
-     * Games
+     * Games.
      */
     public function topGames($options = [])
     {
         $games = new Games();
+
         return $games->topGames($options);
     }
 
     /**
-     * Ingests
+     * Ingests.
      */
     public function ingests($options = [])
     {
         $ingests = new Ingests();
+
         return $ingests->ingests($options);
     }
 
     /**
-     * Root
+     * Root.
      */
     public function root()
     {
         $root = new Root();
+
         return $root->root();
     }
 
     public function authRoot($token = null)
     {
         $root = new Root($this->getToken($token));
+
         return $root->authRoot();
     }
 
     /**
-     * Search
+     * Search.
      */
     public function searchChannels($options)
     {
         $search = new Search();
+
         return $search->searchChannels($options);
     }
 
@@ -203,107 +225,122 @@ class TwitchApiService extends Api
     }*/
 
     /**
-     * Streams
+     * Streams.
      */
     public function liveChannel($channel)
     {
         $streams = new Streams();
+
         return $streams->streamsChannel($channel);
     }
 
     public function streams($options)
     {
         $streams = new Streams();
+
         return $streams->streams($options);
     }
 
     public function featuredStreams($options = [])
     {
         $streams = new Streams();
+
         return $streams->streamsFeatured($options);
     }
 
     public function streamSummaries($options = [])
     {
         $streams = new Streams();
+
         return $streams->streamSummaries($options);
     }
 
     /**
-     * Subscriptions
+     * Subscriptions.
      */
     public function subscribers($channel, $options = [], $token = null)
     {
         $subscriptions = new Subscriptions();
+
         return $subscriptions->channelsSubscriptions($channel, $options, $this->getToken($token));
     }
 
     public function subscriber($channel, $user, $token = null)
     {
         $subscriptions = new Subscriptions();
+
         return $subscriptions->channelSubscriptionUser($channel, $user, $this->getToken($token));
     }
 
     public function subscribedToChannel($channel, $user, $token = null)
     {
         $subscriptions = new Subscriptions();
+
         return $subscriptions->userSubscriptionChannel($channel, $user, $this->getToken($token));
     }
 
     /**
-     * Teams
+     * Teams.
      */
     public function teams()
     {
         $teams = new Teams();
+
         return $teams->teams();
     }
 
     public function team($team)
     {
         $teams = new Teams();
+
         return $teams->team($team);
     }
 
     /**
-     * Users
+     * Users.
      */
     public function user($user)
     {
         $users = new Users();
+
         return $users->user($user);
     }
 
     public function authUser($token = null)
     {
         $users = new Users();
+
         return $users->authenticatedUser($this->getToken($token));
     }
 
     public function followedChannelVideos($token = null)
     {
         $users = new Users();
+
         return $users->followedChannelVideos($this->getToken($token));
     }
 
     /**
-     * Videos
+     * Videos.
      */
     public function video($id)
     {
         $videos = new Videos();
+
         return $videos->video($id);
     }
 
     public function topVideos($options = [])
     {
         $videos = new Videos();
+
         return $videos->videosTop($options);
     }
 
     public function channelVideos($channel, $options = [])
     {
         $videos = new Videos();
+
         return $videos->channelVideos($channel, $options);
     }
 }

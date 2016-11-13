@@ -28,7 +28,7 @@ class TwitchApiServiceProvider extends ServiceProvider
     private function addConfig()
     {
         $this->publishes([
-            __DIR__.'/../../config/twitch-api.php' => config_path('twitch-api.php')
+            __DIR__.'/../../config/twitch-api.php' => config_path('twitch-api.php'),
         ]);
     }
 }
