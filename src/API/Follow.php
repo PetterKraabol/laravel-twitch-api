@@ -3,16 +3,17 @@
 namespace Zarlach\TwitchApi\API;
 
 /**
- * Twitch documentation: https://github.com/justintv/Twitch-API/blob/master/v3_resources/follows.md
+ * Twitch documentation: https://github.com/justintv/Twitch-API/blob/master/v3_resources/follows.md.
  */
-
 class Follow extends Api
 {
     /**
-     * Get channel's list of following users
-     * @param  string  $channel Channel name
-     * @param  array  $options  List options
-     * @return JSON             List of followers
+     * Get channel's list of following users.
+     *
+     * @param string $channel Channel name
+     * @param array  $options List options
+     *
+     * @return JSON List of followers
      */
     public function channelFollows($channel, $options = [])
     {
@@ -22,10 +23,12 @@ class Follow extends Api
     }
 
     /**
-     * Get list of who the user is following
-     * @param  string $user    Username
-     * @param  array  $options List options
-     * @return JSON            List of who the user is following
+     * Get list of who the user is following.
+     *
+     * @param string $user    Username
+     * @param array  $options List options
+     *
+     * @return JSON List of who the user is following
      */
     public function userFollowsChannels($user, $options = [])
     {
@@ -35,10 +38,12 @@ class Follow extends Api
     }
 
     /**
-     * Check if user follows a channel - returns 404 if not
-     * @param  string $user    Username
-     * @param  string $channel Channel name
-     * @return JSON            Request result
+     * Check if user follows a channel - returns 404 if not.
+     *
+     * @param string $user    Username
+     * @param string $channel Channel name
+     *
+     * @return JSON Request result
      */
     public function userFollowsChannel($user, $channel)
     {
@@ -46,12 +51,14 @@ class Follow extends Api
     }
 
     /**
-     * Follow a channel
-     * @param  string $user    Username
-     * @param  string $channel Target channel's name
-     * @param  array  $options Follow options
-     * @param  string $token   Twitch token
-     * @return JSON            Request result
+     * Follow a channel.
+     *
+     * @param string $user    Username
+     * @param string $channel Target channel's name
+     * @param array  $options Follow options
+     * @param string $token   Twitch token
+     *
+     * @return JSON Request result
      */
     public function authenticatedUserFollowsChannel($user, $channel, $options = [], $token = null)
     {
@@ -61,11 +68,13 @@ class Follow extends Api
     }
 
     /**
-     * Unfollow a channel
-     * @param  string $user    Username
-     * @param  string $channel Target channel's name
-     * @param  string $token   Twitch token
-     * @return JSON            Response result
+     * Unfollow a channel.
+     *
+     * @param string $user    Username
+     * @param string $channel Target channel's name
+     * @param string $token   Twitch token
+     *
+     * @return JSON Response result
      */
     public function authenticatedUserUnfollowsChannel($user, $channel, $token = null)
     {

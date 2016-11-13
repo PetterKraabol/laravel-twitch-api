@@ -10,30 +10,39 @@ use Zarlach\TwitchApi\Exceptions\RequestRequiresClientIdException;
 class Api
 {
     /**
-     * Twitch token
+     * Twitch token.
+     *
      * @var token
      */
     protected $token;
 
     /**
-     * Twitch client id
+     * Twitch client id.
+     *
      * @var clientId
      */
     protected $clientId;
 
     /**
-     * Guzzle is used to make http requests
+     * Guzzle is used to make http requests.
+     *
      * @var GuzzleClient
      */
     protected $client;
 
     /**
-     * Construction
+     * Construction.
+     *
+     * @param string $token    Twitch OAuth Token
      * @param string $clientId Twitch client id
-     * @param string $token Twitch OAuth Token
      */
-    public function __construct($clientId = null, $token = null)
+    public function __construct($token = null, $clientId = null)
     {
+
+        // Set token if given
+        if ($token) {
+            $this->setToken($token);
+        }
 
         // Set clientId if given else get from config
         if ($clientId) {
@@ -42,19 +51,15 @@ class Api
             $this->setClientId(config('twitch-api.client_id'));
         }
 
-        // Set token if given
-        if ($token) {
-            $this->setToken($token);
-        }
-
         // GuzzleHttp Client with default parameters.
         $this->client = new Client([
-            'base_uri' => 'https://api.twitch.tv/kraken/'
+            'base_uri' => 'https://api.twitch.tv/kraken/',
         ]);
     }
 
     /**
-     * Set clientId
+     * Set clientId.
+     *
      * @param string $clientId Twitch client id
      */
     public function setClientId($clientId)
@@ -63,8 +68,10 @@ class Api
     }
 
     /**
-     * Get clientId
+     * Get clientId.
+     *
      * @param string clientId optional
+     *
      * @return string clientId
      */
     public function getClientId($clientId = null)
@@ -85,8 +92,9 @@ class Api
     }
 
     /**
-     * Set Twitch OAuth Token
-     * @param String $token OAuth token
+     * Set Twitch OAuth Token.
+     *
+     * @param string $token OAuth token
      */
     public function setToken($token)
     {
@@ -94,9 +102,11 @@ class Api
     }
 
     /**
-     * Get Twitch token
-     * @param  string $token Twitch token
-     * @return string        Twitch token
+     * Get Twitch token.
+     *
+     * @param string $token Twitch token
+     *
+     * @return string Twitch token
      */
     public function getToken($token = null)
     {
@@ -116,22 +126,25 @@ class Api
     }
 
     /**
-     * Send request to Twitch API
-     * @param  string  $type             Request type
-     * @param  string  $path             Request URL path
-     * @param  boolean $token            Twitch token
-     * @param  array   $options          URL queries
-     * @param  array   $availableOptions Available URL queries
-     * @return JSON                      JSON object from Twitch
+     * Send request to Twitch API.
+     *
+     * @param string $type             Request type
+     * @param string $path             Request URL path
+     * @param bool   $token            Twitch token
+     * @param array  $options          URL queries
+     * @param array  $availableOptions Available URL queries
+     *
+     * @return JSON JSON object from Twitch
      */
     public function sendRequest($type = 'GET', $path = '', $token = false, $options = [], $availableOptions = [])
     {
 
-        /**
-         * TODO: Get a better overview of headers, json body and URL parameters
-         * to avoid unnecessary redundancies. Client id and token are currently
-         * set in the header and as URL parameters.
-         */
+/**
+ * TODO: $availableOptions is currently not being used, as it's
+ * just a limitation in case Twitch adds to, or makes changes to them.
+ * This variable can either be removed completed or used for something
+ * more useful, like telling developers what options they have.
+ */
 
         // URL parameters
         $path = $this->generateUrl($path, $token, $options, $availableOptions);
@@ -141,14 +154,13 @@ class Api
           'headers' => [
             'Client-ID' => $this->getClientId(),
             'Accept' => 'application/vnd.twitchtv.v3+json',
-          ]
+          ],
         ];
 
         // Twitch token
-        if ($token) $data['headers']['Authorization'] = 'OAuth '.$this->getToken($token);
-
-        // JSON Data
-        if (isset($options['json'])) $data['json'] = $options['json'];
+        if ($token) {
+            $data['headers']['Authorization'] = 'OAuth '.$this->getToken($token);
+        }
 
         // Request object
         $request = new Request($type, $path, $data);
@@ -161,13 +173,15 @@ class Api
     }
 
     /**
-     * Generate URL with queries
-     * @param  String $url              Original URL
-     * @param  Array $options           Parameter values
-     * @param  Array $availableOptions  Parameters
-     * @return String                   URL with queries
+     * Generate URL with queries.
+     *
+     * @param string $url              Original URL
+     * @param array  $options          Parameter values
+     * @param array  $availableOptions Parameters
+     *
+     * @return string URL with queries
      */
-    public function generateUrl($url, $token = null, $options, $availableOptions)
+    public function generateUrl($url, $token, $options, $availableOptions)
     {
 
         // Append client id
@@ -178,32 +192,11 @@ class Api
             $url .= (parse_url($url, PHP_URL_QUERY) ? '&' : '?').'oauth_token='.$this->getToken($token);
         }
 
-        // Append parameters to url
-        foreach ($availableOptions as $parameter) {
-            if (isset($options[$parameter])) {
-                $url .= (parse_url($url, PHP_URL_QUERY) ? '&' : '?').$parameter.'='.$options[$parameter];
-            }
+        // Add options to the URL
+        foreach ($options as $key => $value) {
+            $url .= (parse_url($url, PHP_URL_QUERY) ? '&' : '?').$key.'='.$value;
         }
 
         return $url;
     }
-
-    /**
-     * Generate Send Data
-     * @param  String $token Twitch OAuth Token
-     * @return Array
-     */
-    //public function generateData($token = false, $options = [], $availableOptions = [])
-    //{
-    //    $data = [];
-
-    //    $data['json'] = isset($options['json']) ? $options['json'] : null;
-
-    //    //$data['headers'] = [
-    //    //  'Authorization' => 'OAuth '.$token,
-    //    //  'Client-ID' => $this->getClientId(),
-    //    //];
-
-    //    return $data;
-    //}
 }
