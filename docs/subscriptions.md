@@ -4,9 +4,9 @@
 
 ## Functions
 
-```$token``` is an optional parameter, but required to be set somewhere.
+`$token` is an optional parameter, but required to be set somewhere.
 
-```$options``` is an optional parameter.
+`$options` is an optional parameter.
 
 ```php
 <?php
@@ -24,12 +24,11 @@ subscriber($channel, $user, $token);
 
 // Get channel object of a single channel subscriber
 subscribedToChannel($channel, $user, $token);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/SubscriptionController.php```
+File: `App/Https/Controllers/SubscriptionController.php`
 
 ```php
 <?php

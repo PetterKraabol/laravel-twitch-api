@@ -6,7 +6,7 @@ Game top lists.
 
 ## Functions
 
-```$options``` is an optional parameter.
+`$options` is an optional parameter.
 
 ```php
 <?php
@@ -17,12 +17,11 @@ $options = [
     'offset' => 0,
 ];
 topGames($options);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/GamesController.php```
+File: `App/Https/Controllers/GamesController.php`
 
 ```php
 <?php

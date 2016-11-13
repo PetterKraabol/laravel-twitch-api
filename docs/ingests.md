@@ -11,12 +11,11 @@ Twitch streaming servers.
 
 // Ingest list
 ingests();
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/IngestsController.php```
+File: `App/Https/Controllers/IngestsController.php`
 
 ```php
 <?php

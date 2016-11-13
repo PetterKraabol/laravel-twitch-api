@@ -6,7 +6,7 @@ Twitch API root
 
 ## Functions
 
-```$token``` is an optional parameter, but required to be set somewhere.
+`$token` is an optional parameter, but required to be set somewhere.
 
 ```php
 <?php
@@ -16,12 +16,11 @@ root();
 
 // Authenticated API root
 authRoot($token);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/RootController.php```
+File: `App/Https/Controllers/RootController.php`
 
 ```php
 <?php

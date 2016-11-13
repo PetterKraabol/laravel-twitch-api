@@ -18,12 +18,11 @@ setClientId($clientId);
 
 // Get twitch client id
 $clientId = getClientId();
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/TokenController.php```
+File: `App/Https/Controllers/TokenController.php`
 
 Return channel object based on an OAuth token.
 

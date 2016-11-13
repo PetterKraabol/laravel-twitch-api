@@ -6,7 +6,7 @@ Channel objects, reset stream keys and play commercials
 
 ## Functions
 
-```$token``` is an optional parameter, but required to be set somewhere.
+`$token` is an optional parameter, but required to be set somewhere.
 
 ```php
 <?php
@@ -31,9 +31,10 @@ resetStreamKey($channel, $token);
 // Post (run) commercial
 runCommercial($channel, $length = 30, $token);
 ```
+
 ## Example Usage
 
-File: ```App/Https/Controllers/ChannelController.php```
+File: `App/Https/Controllers/ChannelController.php`
 
 ```php
 <?php

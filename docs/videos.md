@@ -6,7 +6,7 @@ Video objects, top lists and channel videos.
 
 ## Functions
 
-```$token``` is an optional parameter, but required to be set somewhere.
+`$token` is an optional parameter, but required to be set somewhere.
 
 ```php
 <?php
@@ -25,12 +25,11 @@ options = [
     'hls' => '',
 ];
 channelVideos($channel, $options);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/VideosController.php```
+File: `App/Https/Controllers/VideosController.php`
 
 ```php
 <?php

@@ -6,7 +6,7 @@ User objects, followings and followed videos.
 
 ## Functions
 
-```$token``` is an optional parameter, but required to be set somewhere.
+`$token` is an optional parameter, but required to be set somewhere.
 
 ```php
 <?php
@@ -22,12 +22,11 @@ liveChannels($token);
 
 // Videos from channels you follow
 followedChannelVideos($token);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/UsersController.php```
+File: `App/Https/Controllers/UsersController.php`
 
 ```php
 <?php

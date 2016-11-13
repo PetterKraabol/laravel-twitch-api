@@ -5,7 +5,8 @@ For seeing blocked (ignored) users and (un)block a user.
 [Twitch API](https://github.com/justintv/Twitch-API/blob/master/blcoks.md)
 
 ## Functions
-```$token``` is an optional parameter, but required to be set somewhere.
+
+`$token` is an optional parameter, but required to be set somewhere.
 
 ```php
 <?php
@@ -18,12 +19,11 @@ ignore($user, $target, $token);
 
 // Unblock user
 unignore($user, $target, $token);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/IgnoreController.php```
+File: `App/Https/Controllers/IgnoreController.php`
 
 ```php
 <?php

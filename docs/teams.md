@@ -6,7 +6,7 @@ Team lists and objects.
 
 ## Functions
 
-```$options``` is an optional parameter.
+`$options` is an optional parameter.
 
 ```php
 <?php
@@ -20,12 +20,11 @@ teams($options);
 
 // Get team object
 team($team);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/TeamController.php```
+File: `App/Https/Controllers/TeamController.php`
 
 ```php
 <?php

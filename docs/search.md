@@ -6,7 +6,7 @@ Search for channels
 
 ## Functions
 
-```$options``` is an optional parameter.
+`$options` is an optional parameter.
 
 ```php
 <?php
@@ -34,12 +34,11 @@ $options = [
     'offset' => 0,
 ];
 searchGames($options);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/SearchController.php```
+File: `App/Https/Controllers/SearchController.php`
 
 ```php
 <?php

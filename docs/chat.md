@@ -17,12 +17,11 @@ chatBadges($channel);
 
 // Returns list of all Twitch emotes
 chatEmoticons();
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/ChatController.php```
+File: `App/Https/Controllers/ChatController.php`
 
 ```php
 <?php

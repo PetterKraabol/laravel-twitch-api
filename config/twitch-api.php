@@ -16,6 +16,6 @@ return [
         'channel_subscriptions',
         'user_subscriptions',
         'channel_check_subscription',
-        'chat_login'
-    ]
+        'chat_login',
+    ],
 ];

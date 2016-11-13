@@ -6,9 +6,9 @@ Follower lists, follow and unfollow.
 
 ## Functions
 
-```$token``` is an optional parameter, but required to be set somewhere.
+`$token` is an optional parameter, but required to be set somewhere.
 
-```$options``` is an optional parameter.
+`$options` is an optional parameter.
 
 ```php
 <?php
@@ -41,12 +41,11 @@ follow($user, $channel, $options, $token);
 
 // Unfollow a channel
 unfollow($user, $channel, $token);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/FollowController.php```
+File: `App/Https/Controllers/FollowController.php`
 
 ```php
 <?php

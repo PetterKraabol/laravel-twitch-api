@@ -1,4 +1,5 @@
 # Authentication
+
 If this doesn't cover your needs, take a look at [Socialite Providers](https://socialiteproviders.github.io) and their [Twitch OAuth2 package](http://socialiteproviders.github.io/providers/twitch/).
 
 [Twitch API](https://github.com/justintv/Twitch-API/blob/master/authentication.md)
@@ -13,12 +14,11 @@ getAuthenticationUrl($state, $forceVerify);
 
 // Get access token based on a code/state retrieved from Twitch after the user has signed in through Twitch.
 getAccessToken($code)
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/AuthController.php```
+File: `App/Https/Controllers/AuthController.php`
 
 ```php
 <?php

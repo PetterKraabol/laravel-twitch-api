@@ -6,7 +6,7 @@ Twitch streams
 
 ## Functions
 
-```$options``` is an optional parameter.
+`$options` is an optional parameter.
 
 ```php
 <?php
@@ -38,12 +38,11 @@ $options = [
     'offset' => 0,
 ];
 streamSummaries($options);
-
 ```
 
 ## Example Usage
 
-File: ```App/Https/Controllers/StreamsController.php```
+File: `App/Https/Controllers/StreamsController.php`
 
 ```php
 <?php
