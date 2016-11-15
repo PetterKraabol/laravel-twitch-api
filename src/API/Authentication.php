@@ -37,6 +37,8 @@ class Authentication extends Api
      */
     public function getAccessToken($code, $state = null)
     {
+        $response = this.getAccessObject($code, $state);
+
         return $response['access_token'];
     }
 
