@@ -25,7 +25,7 @@ $options = [
 ];
 updateChannel($channel, $options, $token);
 
-// Delete (rest) stream key
+// Delete (reset) stream key
 resetStreamKey($channel, $token);
 
 // Post (run) commercial
