@@ -26,13 +26,29 @@ class Authentication extends Api
     }
 
     /**
-     * Get access token based on a code/state retrieved from Twitch after the user has signed in through Twitch.
+     * Get access_token from Twitch.
      *
-     * @param string $code code returned from Twitch when user has signed in with their Twitch account
+     * @deprecated Use getAccessObject() instead
+     *
+     * @param string $code  code from redirect_uri
+     * @param string $state optional state OAuth2 parameter to prevent cross-site scripting attacks
      *
      * @return JSON JSON response object containing the access token
      */
     public function getAccessToken($code, $state = null)
+    {
+        return $response['access_token'];
+    }
+
+    /**
+     * Returns access_token, refresh_token and scope from Twitch.
+     *
+     * @param string $code  code from redirect_uri
+     * @param string $state optional state OAuth2 parameter to prevent cross-site scripting attacks
+     *
+     * @return JSON JSON response object from Twitch
+     */
+    public function getAccessObject($code, $state = null)
     {
         $availableOptions = ['client_secret', 'grant_type', 'state', 'code', 'redirect_uri'];
 
@@ -44,6 +60,6 @@ class Authentication extends Api
             'redirect_uri' => config('twitch-api.redirect_url'),
         ];
 
-        return $this->sendRequest('POST', 'oauth2/token', false, $options, $availableOptions)['access_token'];
+        return $this->sendRequest('POST', 'oauth2/token', false, $options, $availableOptions);
     }
 }

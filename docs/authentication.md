@@ -10,16 +10,17 @@ If this doesn't cover your needs, take a look at [Socialite Providers](https://s
 <?php
 
 // Get the Twitch OAuth URL to where the user signs in through Twitch. Both parameters are optional.
+// If $forceVerify is set to true, the user will be forced to verify access again.
 getAuthenticationUrl($state, $forceVerify);
 
-// Get access token based on a code/state retrieved from Twitch after the user has signed in through Twitch.
-getAccessToken($code)
+// Get access_token, refresh_token and scopes by a code from the return uri.
+getAccessObject($code, $state = null)
+
+// Same as getAccessObject(), but only returns access_token (deprecated).
+getAccessToken($code, $state = null)
 ```
-
 ## Example Usage
-
 File: `App/Https/Controllers/AuthController.php`
-
 ```php
 <?php
 
@@ -41,8 +42,8 @@ class AuthController extends Controller
 
         // Request Twitch token from Twitch
         $code = $request->input('code');
-        $token = TwitchApi::getAccessToken($code);
-        TwitchApi::setToken($token);
+        $response = TwitchApi::getAccessObject($code);
+        TwitchApi::setToken($response['access_token']);
 
         // Get user object from Twitch
         $twitchUser = Twitch::authUser();
