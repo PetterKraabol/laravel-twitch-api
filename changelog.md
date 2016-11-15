@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.5
+- Function name fix.
+
 ## 1.3.4
 
 - New function `getAccessObject($code, $state = null)` to retrieve full response object when requesting access_token from Twitch. Use this instead of `getAccessToken($code, $state = null)` which is now deprecated.

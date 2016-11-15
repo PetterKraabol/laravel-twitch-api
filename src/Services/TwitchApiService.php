@@ -21,8 +21,8 @@ use Zarlach\TwitchApi\API\Videos;
 class TwitchApiService extends Api
 {
     /**
-    * Authentication.
-    */
+     * Authentication.
+     */
     public function getAuthenticationUrl($state = null, $forceVerify = false)
     {
         $authentication = new Authentication();
@@ -37,7 +37,7 @@ class TwitchApiService extends Api
         return $authentication->getAccessToken($code, $state);
     }
 
-    public function getAccessToken($code, $state = null)
+    public function getAccessObject($code, $state = null)
     {
         $authentication = new Authentication();
 
