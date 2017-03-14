@@ -54,6 +54,7 @@ class Api
         // GuzzleHttp Client with default parameters.
         $this->client = new Client([
             'base_uri' => 'https://api.twitch.tv/kraken/',
+            'headers'  => array('Accept' => 'application/vnd.twitchtv.v5+json')
         ]);
     }
 
