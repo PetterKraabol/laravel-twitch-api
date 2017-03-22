@@ -1,6 +1,4 @@
 # Changelog
-## 1.3.6
-- Added users functionality. This enables you to receive user_id based on the username.
 
 ## 1.3.5
 - Function name fix.
