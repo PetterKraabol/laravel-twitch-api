@@ -313,6 +313,13 @@ class TwitchApiService extends Api
         return $users->user($user);
     }
 
+    public function users($options)
+    {
+        $users = new Users();
+
+        return $users->users($options);
+    }
+
     public function authUser($token = null)
     {
         $users = new Users();
