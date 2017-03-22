@@ -16,7 +16,7 @@ user($user);
 
 // Get the users by username
 $options = [
-    'login'      => 'username',
+    'login' => 'username',
 ];
 users($options)
 
