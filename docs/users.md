@@ -50,13 +50,13 @@ class UsersController extends Controller
     }
 
     public function users()
-        {
-            $options = [
-                'login' => 'username',
-            ];
+    {
+        $options = [
+            'login' => 'username',
+        ];
 
-            return TwitchApi::users($options);
-        }
+        return TwitchApi::users($options);
+    }
 
     public function authUser()
     {
