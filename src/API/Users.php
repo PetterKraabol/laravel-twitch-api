@@ -20,6 +20,20 @@ class Users extends Api
     }
 
     /**
+     * Users object
+     *
+     * @param $options List options
+     *
+     * @return JSON Users object
+     */
+    public function users($options)
+    {
+        $availableOptions = ['login'];
+
+        return $this->sendRequest('GET', 'users', false, $options, $availableOptions);
+    }
+
+    /**
      * Authenticated user object.
      *
      * @param string $token Twitch token

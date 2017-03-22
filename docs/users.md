@@ -14,6 +14,12 @@ User objects, followings and followed videos.
 // User object
 user($user);
 
+// Get the users by username
+$options = [
+    'login' => 'username',
+];
+users($options)
+
 // Authenticated user object
 authUser($token);
 
@@ -41,6 +47,15 @@ class UsersController extends Controller
     public function user()
     {
         return TwitchApi::user('zarlach');
+    }
+
+    public function users()
+    {
+        $options = [
+            'login' => 'username',
+        ];
+
+        return TwitchApi::users($options);
     }
 
     public function authUser()
