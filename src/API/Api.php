@@ -154,7 +154,7 @@ class Api
         $data = [
           'headers' => [
             'Client-ID' => $this->getClientId(),
-            'Accept' => 'application/vnd.twitchtv.v3+json',
+            'Accept' => 'application/vnd.twitchtv.v5+json',
           ],
         ];
 
