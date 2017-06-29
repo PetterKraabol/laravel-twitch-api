@@ -4,6 +4,8 @@ namespace Zarlach\TwitchApi\API;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Exception\RequestException;
+
 use Zarlach\TwitchApi\Exceptions\RequestRequiresAuthenticationException;
 use Zarlach\TwitchApi\Exceptions\RequestRequiresClientIdException;
 
@@ -21,6 +23,7 @@ class Api
      *
      * @var clientId
      */
+
     protected $clientId;
 
     /**
@@ -49,7 +52,7 @@ class Api
             $this->setClientId($clientId);
         } elseif (config('twitch-api.client_id')) {
             $this->setClientId(config('twitch-api.client_id'));
-        }
+        } 
 
         // GuzzleHttp Client with default parameters.
         $this->client = new Client([
@@ -146,15 +149,15 @@ class Api
  * This variable can either be removed completed or used for something
  * more useful, like telling developers what options they have.
  */
-
         // URL parameters
+        //$path = $this->generateUrl($path, $token, $options, $availableOptions);
         $path = $this->generateUrl($path, $token, $options, $availableOptions);
 
         // Headers
         $data = [
           'headers' => [
             'Client-ID' => $this->getClientId(),
-            'Accept' => 'application/vnd.twitchtv.v3+json',
+            'Accept' => 'application/vnd.twitchtv.v5+json',
           ],
         ];
 
@@ -163,14 +166,30 @@ class Api
             $data['headers']['Authorization'] = 'OAuth '.$this->getToken($token);
         }
 
-        // Request object
-        $request = new Request($type, $path, $data);
+        try{
+            // Request object
+            $request = new Request($type, $path, $data);
+            // Send request
+            $response = $this->client->send($request);
 
-        // Send request
-        $response = $this->client->send($request);
-
-        // Return body in JSON data
-        return json_decode($response->getBody(), true);
+            // Return body in JSON data
+            return json_decode($response->getBody(), true);
+        }
+        catch(RequestException $e){
+            if ($e->hasResponse()) {
+                $exception = (string) $e->getResponse()->getBody();
+                $exception = json_decode($exception);
+                return $exception;
+            } else {
+                //503
+                return array(
+                    'error' => 'Service Unavailable',
+                    'status' => 503,
+                    'message' => $e->getMessage()
+                );
+            }
+        }
+        
     }
 
     /**
