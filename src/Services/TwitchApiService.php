@@ -17,6 +17,7 @@ use Zarlach\TwitchApi\API\Subscriptions;
 use Zarlach\TwitchApi\API\Teams;
 use Zarlach\TwitchApi\API\Users;
 use Zarlach\TwitchApi\API\Videos;
+use Zarlach\TwitchApi\API\Clips;
 
 class TwitchApiService extends Api
 {
@@ -357,4 +358,22 @@ class TwitchApiService extends Api
 
         return $videos->channelVideos($channel, $options);
     }
+    /**
+     * Clips.
+     */
+    public function clip($slug)
+    {
+        $clips = new Clips();
+
+        return $clips->clip($slug);
+    }
+
+    public function topClips($options = [])
+    {
+        $clips = new Clips();
+
+        return $clips->clipsTop($options);
+    }
+	
+	
 }
