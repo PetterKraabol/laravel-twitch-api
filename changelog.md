@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.3.6 - 1.5.1
+- force-verify fix
+- Twitch Clips
+- Error handling
+- v5 compatability
+
 ## 1.3.5
 - Function name fix.
 
