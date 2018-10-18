@@ -22,7 +22,7 @@ class Authentication extends Api
         .'&redirect_uri='.config('twitch-api.redirect_url')
         .'&scope='.implode(config('twitch-api.scopes'), '+')
         .'&state='.$state
-        .'&force_verify='.$forceVerify;
+        .'&force_verify='.($forceVerify ? 'true' : 'false');
     }
 
     /**
