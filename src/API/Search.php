@@ -20,4 +20,11 @@ class Search extends Api
 
         return $this->sendRequest('GET', 'search/channels', false, $options, $availableOptions);
     }
+
+    public function searchGames($options)
+    {
+        $availableOptions = ['query', 'limit', 'offset'];
+
+        return $this->sendRequest('GET', 'search/games', false, $options, $availableOptions);
+    }
 }
