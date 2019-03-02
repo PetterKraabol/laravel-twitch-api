@@ -224,13 +224,11 @@ class TwitchApiService extends Api
         return $search->searchStreams($options);
     }*/
 
-    /* Coming Soon
-
     public function searchGames($options)
     {
         $search = new Search();
         return $search->searchGames($options);
-    }*/
+    }
 
     /**
      * Streams.
